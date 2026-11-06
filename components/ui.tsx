@@ -17,6 +17,6 @@ export function MetricCard({ icon: Icon, value, label, detail }: { icon: LucideI
 export function EmptyState({ title, description }: { title: string; description: string }) {
   return <div className="empty-state"><span className="empty-symbol">↳</span><h3>{title}</h3><p>{description}</p></div>;
 }
-export function SampleNote({ compact = false }: { compact?: boolean }) {
-  return <p className={`sample-note ${compact ? 'compact' : ''}`}><span/>샘플 콘텐츠{!compact && ' · 프로젝트와 역량은 구성 예시이며, 실제 이력으로 교체할 수 있습니다.'}</p>;
+export function SourceNote() {
+  return <p className="sample-note"><span/>경력·프로젝트 정보 · 2026.11 기준 · 성과 수치는 이력서 기재 기준입니다.</p>;
 }
