@@ -139,14 +139,6 @@ export const implementedFeatures = [
   { title: '레거시 전환·기능 분리', category: 'REFACTORING', description: 'PHP의 결제·쇼핑몰·게시판 기능을 React UI와 Node.js API로 전환하며 공통 로직과 책임을 분리했습니다.', tags: ['PHP', 'React', 'Node.js'], project: 'legacy-snap' },
   { title: '서비스 초기 설계·플랫폼 구축', category: 'ARCHITECTURE & PLATFORM', description: 'MSA 서비스 초기 구조를 구성하고 교육 플랫폼의 관리 화면·API·MySQL DB 및 Vimeo 연동을 설계했습니다.', tags: ['MSA', 'MySQL', 'Vimeo'], project: 'education' },
 ];
-export const capabilities = [
-  { id: 'search', title: '검색과 필터링', category: 'Data interaction', description: '입력과 선택에 맞춰 필요한 정보를 찾는 포트폴리오 UI 데모', tags: ['검색', '복합 필터', '빈 결과 처리'] },
-  { id: 'form', title: '폼과 유효성 검사', category: 'User input', description: '올바른 입력을 안내하고 제출 상태를 보여주는 로컬 UI 데모', tags: ['입력 검증', '오류 안내', '제출 상태'] },
-  { id: 'state', title: '상태 관리', category: 'Application logic', description: '수량과 합계가 함께 변경되는 장바구니 상태 데모', tags: ['공유 상태', '수량 변경', '파생 데이터'] },
-  { id: 'dashboard', title: '데이터 대시보드', category: 'Data visualization', description: '예시 데이터로 기간별 지표와 차트를 표현하는 UI 데모', tags: ['지표 카드', '차트', '기간 전환'] },
-  { id: 'ui', title: '공용 컴포넌트', category: 'Design engineering', description: '동일한 컴포넌트에 스타일과 상태를 조합하는 UI 데모', tags: ['디자인 토큰', '재사용', '인터랙션 상태'] },
-  { id: 'accessibility', title: '반응형과 접근성', category: 'Inclusive experience', description: '화면 크기에 따른 배치와 키보드 탐색을 보여주는 UI 데모', tags: ['반응형 레이아웃', '키보드 탐색', '시맨틱 HTML'] },
-] as const;
 export const domains = [
   { name: 'Frontend & Web', detail: '쇼핑몰·교육 플랫폼·ERP 화면 개발', tools: 'Next.js · React · TypeScript' },
   { name: 'Backend & Services', detail: 'API 설계, 파일 전달 구조와 MSA 초기 구성', tools: 'NestJS · FastAPI · Node.js' },
