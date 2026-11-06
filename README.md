@@ -45,7 +45,7 @@ npm run build
 ## 공용 컴포넌트
 
 - `components/shell.tsx`: 사이드바, 활성 메뉴, 모바일 메뉴, 헤더, 푸터.
-- `components/ui.tsx`: 공용 Badge, 제목, 지표 카드, 빈 상태, 경력 정보 기준 안내. 버튼은 `.button` 공용 클래스와 변형으로 구성합니다.
+- `components/ui.tsx`: 공용 Badge, 제목, 지표 카드, 빈 상태. 버튼은 `.button` 공용 클래스와 변형으로 구성합니다.
 - `components/project-visual.tsx`: 외부 이미지에 의존하지 않는 프로젝트 구성 개념도.
 - `components/projects-explorer.tsx`: 검색·필터와 네이티브 `<dialog>` 기반 상세 보기. 모달 포커스 관리, Escape 닫기를 지원합니다.
 
@@ -62,6 +62,18 @@ Material 팔레트의 5개 원색만 사용합니다. 추가 강조·경계색�
 | Surface | `#FFFFFF` |
 
 본문은 16px, 보조 문구와 라벨은 최소 13px이며 모바일을 포함한 모든 글자 크기를 12px보다 크게 유지합니다.
+
+서체는 패키지에서 가져와 사이트와 함께 자체 호스팅합니다. 외부 Google Fonts/CDN 요청 없이 동작하며 모두 `font-display: swap`을 사용합니다.
+
+| 용도 | 폰트 | 공급 패키지 |
+| --- | --- | --- |
+| 한글 본문·UI | Pretendard Variable | `pretendard` |
+| 영문 제목·브랜드·숫자 | Space Grotesk Variable | `@fontsource-variable/space-grotesk` |
+| 코드 영역 | JetBrains Mono Variable | `@fontsource-variable/jetbrains-mono` |
+
+폰트별 라이선스 원문은 `public/font-licenses.txt`에 포함했습니다. 서체 설정은 `app/layout.tsx`의 CSS import와 `app/globals.css`의 `--font-sans`, `--font-display`, `--font-mono` 토큰에서 관리합니다.
+
+사이트에는 이력서를 기반으로 정리했다는 제작 설명 문구를 표시하지 않습니다. 자료 기준과 편집 방법은 이 문서에서 관리합니다.
 
 CSS 토큰과 공용 스타일은 `app/globals.css`에서 관리합니다. 작은 화면에서는 메뉴가 접히고 카드가 한 열로 전환됩니다. 키보드 포커스, 본문 바로가기, 의미 있는 폼 라벨, 모달, reduced-motion을 지원합니다.
 

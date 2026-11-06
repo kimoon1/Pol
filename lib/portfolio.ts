@@ -56,7 +56,7 @@ export const projects: Project[] = [
     features: ['React UI와 Node.js API 구조로 기능 전환', '결제·쇼핑몰·게시판 기존 기능 검증', '운영을 유지하며 단계적으로 리팩토링'],
     challenge: '기존 서비스 기능과 운영을 유지하면서 PHP 레거시 구조를 전환해야 했습니다.',
     solution: '기존 기능을 검증하며 React·Node.js 기반으로 기능 단위 전환을 구현했습니다.',
-    result: '유지보수 소요 시간 약 30% 단축. 수치는 이력서 기재 기준입니다.',
+    result: '유지보수 소요 시간 약 30% 단축.',
     period: '2025.03 — 2025.05', company: '(주)스냅컴퍼니', role: '프론트 팀원 · React·Node.js 전환 구현', kind: 'system',
     visualSteps: ['기존 기능 검증', 'React UI', 'Node.js API'],
   },

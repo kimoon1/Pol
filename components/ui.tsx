@@ -17,6 +17,3 @@ export function MetricCard({ icon: Icon, value, label, detail }: { icon: LucideI
 export function EmptyState({ title, description }: { title: string; description: string }) {
   return <div className="empty-state"><span className="empty-symbol">↳</span><h3>{title}</h3><p>{description}</p></div>;
 }
-export function SourceNote() {
-  return <p className="sample-note"><span/>경력·프로젝트 정보 · 2026.11 기준 · 성과 수치는 이력서 기재 기준입니다.</p>;
-}

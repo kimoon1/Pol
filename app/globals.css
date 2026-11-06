@@ -20,7 +20,7 @@ body {
   margin: 0;
   background: var(--canvas);
   color: var(--ink);
-  font-family: Arial,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+  font-family: var(--font-sans);
   font-size: 14px;
   letter-spacing: -.025em;
   -webkit-font-smoothing: antialiased;
@@ -530,7 +530,7 @@ button {
   gap: 8px;
   padding: 11px 13px;
   border-bottom: 1px solid var(--border);
-  font-family: monospace;
+  font-family: var(--font-mono);
   font-size: 13px;
   color: var(--muted);
 }
@@ -546,7 +546,7 @@ button {
 }
 .art-code {
   padding: 16px 18px;
-  font-family: monospace;
+  font-family: var(--font-mono);
   font-size: 13px;
   letter-spacing: -.3px;
   line-height: 2.1;
@@ -908,39 +908,6 @@ button {
   width: 145px;
   height: 145px;
 }
-.dashboard-tail {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 22px;
-  gap: 15px;
-}
-.sample-note {
-  font-size: 13px;
-  color: var(--muted);
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  line-height: 1.7;
-}
-.sample-note>span {
-  height: 4px;
-  width: 4px;
-  border-radius: 100%;
-  background: var(--muted);
-  flex-shrink: 0;
-}
-.dashboard-tail>a {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 13px;
-  color: var(--muted);
-  white-space: nowrap;
-}
-.dashboard-tail>a:hover {
-  color: var(--primary);
-}
 .page-heading {
   display: flex;
   align-items: center;
@@ -1238,12 +1205,6 @@ button {
 .check-list svg {
   color: var(--primary);
 }
-.dialog-disclaimer {
-  border-top: 1px solid var(--border);
-  padding-top: 18px;
-  margin-top: 22px;
-  font-size: 13px !important;
-}
 .about-intro {
   display: grid;
   grid-template-columns: 220px 1fr;
@@ -1369,7 +1330,7 @@ button {
   bottom: -28px;
   left: 17px;
 }
-.timeline-placeholder:nth-last-child(2):before {
+.timeline-placeholder:last-child:before {
   display: none;
 }
 .timeline-icon {
@@ -1409,18 +1370,6 @@ button {
   color: var(--muted);
   line-height: 1.9;
   margin-top: 10px;
-}
-.info-note {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  font-size: 13px;
-  line-height: 1.8;
-  padding: 13px;
-  background: var(--blue-wash);
-  border-radius: 6px;
-  color: var(--muted);
-  margin-top: 25px;
 }
 .document-list {
   margin-top: 10px;
@@ -1900,15 +1849,6 @@ button {
   .contact-panel .eyebrow {
     font-size: 13px;
   }
-  .dashboard-tail {
-    align-items: flex-start;
-  }
-  .dashboard-tail .sample-note {
-    font-size: 13px;
-  }
-  .dashboard-tail>a {
-    font-size: 13px;
-  }
   .main-wrap footer {
     font-size: 13px;
   }
@@ -2110,13 +2050,6 @@ button {
   }
   .bottom-feature-panel p {
     line-height: 1.8;
-  }
-  .dashboard-tail {
-    flex-direction: column;
-    gap: 8px;
-  }
-  .dashboard-tail .sample-note {
-    font-size: 13px;
   }
   .page-heading h1 {
     font-size: 28px;
@@ -2412,13 +2345,6 @@ button {
   .bottom-feature-panel .eyebrow {
     font-size: 13px;
   }
-  .dashboard-tail .sample-note {
-    font-size: 13px;
-    align-items: flex-start;
-  }
-  .dashboard-tail .sample-note>span {
-    margin-top: 5px;
-  }
   .main-wrap footer {
     font-size: 13px;
     padding: 20px;
@@ -2439,9 +2365,6 @@ button {
   .page-heading .eyebrow {
     font-size: 13px;
     letter-spacing: 1.3px;
-  }
-  .page-heading+.sample-note {
-    font-size: 13px;
   }
   .project-card .project-visual {
     height: 235px;
@@ -2517,9 +2440,6 @@ button {
   .timeline-placeholder p {
     font-size: 13px;
   }
-  .info-note {
-    font-size: 13px;
-  }
   .document-row h3 {
     font-size: 13px;
   }
@@ -2580,9 +2500,6 @@ button {
     display: none;
   }
   .hero {
-    display: block;
-  }
-  .sample-note {
     display: block;
   }
   body {
@@ -2930,7 +2847,7 @@ button {
 .timeline-placeholder:before {
   bottom: -30px;
 }
-.timeline-placeholder:nth-last-child(2):before {
+.timeline-placeholder:last-child:before {
   display: none;
 }
 .hero-tech>span {
@@ -3122,12 +3039,6 @@ button {
   white-space: normal;
   word-break: keep-all;
 }
-.dashboard-tail .sample-note {
-  align-items: flex-start;
-}
-.dashboard-tail .sample-note>span {
-  margin-top: 5px;
-}
 
 /* Readable type scale: every screen uses at least 13px. */
 :root {
@@ -3224,8 +3135,7 @@ body {
   max-width: 420px;
   margin: 65px 0 70px;
 }
-.art-window-top, .art-code, .art-preview div > span,
-.floating-tag, .art-check, .art-coordinate {
+.art-window-top, .art-code, .art-preview div > span, .floating-tag, .art-check, .art-coordinate {
   font-size: var(--font-small);
   letter-spacing: 0;
 }
@@ -3289,7 +3199,7 @@ body {
   font-size: 20px;
   line-height: 1.5;
 }
-.section-heading p, .sample-note {
+.section-heading p {
   font-size: var(--font-small);
   line-height: 1.8;
 }
@@ -3330,9 +3240,7 @@ body {
 .project-meta {
   flex-wrap: wrap;
 }
-.project-meta > span:last-child:not(.badge), .badge, .tech-tags .badge,
-.implemented-card .tech-tags .badge, .project-card-bottom,
-.document-status, .timeline-title .badge, .career-links a {
+.project-meta > span:last-child:not(.badge), .badge, .tech-tags .badge, .implemented-card .tech-tags .badge, .project-card-bottom, .document-status, .timeline-title .badge, .career-links a {
   font-size: var(--font-small);
   line-height: 1.5;
 }
@@ -3364,8 +3272,7 @@ body {
 .search-field input {
   font-size: var(--font-body);
 }
-.project-visual, .project-card .project-visual,
-.featured-panel .project-visual, .project-dialog .project-visual {
+.project-visual, .project-card .project-visual, .featured-panel .project-visual, .project-dialog .project-visual {
   height: auto;
   min-height: 340px;
 }
@@ -3395,9 +3302,7 @@ body {
 .case-title {
   margin: 16px 0;
 }
-.case-title > span, .case-step > span, .case-step > strong,
-.project-dialog .case-step > strong, .case-tech,
-.project-dialog .case-tech, .case-visual-note {
+.case-title > span, .case-step > span, .case-step > strong, .project-dialog .case-step > strong, .case-tech, .project-dialog .case-tech, .case-visual-note {
   font-size: var(--font-small);
   line-height: 1.6;
   letter-spacing: 0;
@@ -3439,7 +3344,7 @@ body {
   font-size: var(--font-small);
   line-height: 1.7;
 }
-.dialog-content p, .dialog-content .dialog-disclaimer {
+.dialog-content p {
   font-size: 15px !important;
   line-height: 1.9;
 }
@@ -3460,18 +3365,14 @@ body {
 .dialog-content h2 {
   line-height: 1.5;
 }
-.implemented-card > p, .about-intro-content > p,
-.about-intro-content > p + p, .principle-card p,
-.timeline-placeholder > div > span, .education-item p, .ai-list {
+.implemented-card > p, .about-intro-content > p, .about-intro-content > p + p, .principle-card p, .timeline-placeholder > div > span, .education-item p, .ai-list {
   font-size: var(--font-body);
   line-height: 1.9;
 }
 .implemented-card h2 {
   font-size: 23px;
 }
-.implemented-card-top .eyebrow, .implemented-card-top > span:last-child,
-.about-avatar > small, .info-note, .document-row p, .document-note,
-.education-item span, .skill-group > span, .contact-panel .eyebrow {
+.implemented-card-top .eyebrow, .implemented-card-top > span:last-child, .about-avatar > small, .document-row p, .document-note, .education-item span, .skill-group > span, .contact-panel .eyebrow {
   font-size: var(--font-small);
   line-height: 1.8;
   letter-spacing: .2px;
@@ -3483,19 +3384,17 @@ body {
   font-size: 17px;
   line-height: 1.6;
 }
-.principle-card > div > span, .timeline-placeholder p,
-.document-row h3, .skill-group .badge, .contact-panel p,
-.contact-actions .button, .external-work-links .text-link {
+.principle-card > div > span, .timeline-placeholder p, .document-row h3, .skill-group .badge, .contact-panel p, .contact-actions .button, .external-work-links .text-link {
   font-size: var(--font-label);
   line-height: 1.8;
 }
 .document-row > div:nth-child(2) {
   min-width: 0;
 }
-.document-note, .info-note {
+.document-note {
   align-items: flex-start;
 }
-.document-note > svg, .info-note > span {
+.document-note > svg {
   flex-shrink: 0;
   margin-top: 5px;
 }
@@ -3697,5 +3596,134 @@ body {
   .contact-actions {
     min-width: 0;
     width: 100%;
+  }
+}
+
+/* Self-hosted typography: Korean UI, geometric Latin accents, developer mono. */
+:root {
+  --font-sans: 'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'Space Grotesk Variable', 'Pretendard Variable', sans-serif;
+  --font-mono: 'JetBrains Mono Variable', 'Pretendard Variable', monospace;
+}
+html {
+  text-rendering: optimizeLegibility;
+}
+body {
+  font-family: var(--font-sans);
+  font-weight: 450;
+  letter-spacing: -.015em;
+  font-synthesis: none;
+}
+button, input, select {
+  font-family: inherit;
+}
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  text-wrap: balance;
+}
+.hero h1 {
+  font-weight: 740;
+  letter-spacing: -.045em;
+  line-height: 1.32;
+}
+.page-heading h1, .about-intro-content h2 {
+  font-weight: 720;
+  letter-spacing: -.04em;
+}
+.section-heading h2, .project-card h2, .implemented-card h2, .featured-caption h3, .contact-panel h2, .bottom-feature-panel h2 {
+  font-weight: 650;
+  letter-spacing: -.035em;
+}
+.brand {
+  font-family: var(--font-display);
+  font-size: 35px;
+  font-weight: 700;
+  letter-spacing: -.075em;
+}
+.brand-caption {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: .05em;
+}
+.eyebrow, .edition-label, .hero-kicker, .nav-caption, .tiny-label, .preview-label, .hero-tech, .case-frame-top, .case-tech, .art-check, .floating-tag, .topbar-avatar {
+  font-family: var(--font-display);
+}
+.eyebrow, .hero-kicker, .edition-label, .nav-caption, .tiny-label {
+  font-weight: 600;
+  letter-spacing: .07em;
+}
+.nav-item, .button, .sidebar-profile strong {
+  font-weight: 550;
+}
+.nav-item.active {
+  font-weight: 650;
+}
+.metric-value, .page-index, .process-steps > div > span, .implemented-card-top > span:last-child, .case-step > span {
+  font-family: var(--font-display);
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  letter-spacing: -.045em;
+}
+.metric-value > span {
+  font-family: var(--font-sans);
+  font-weight: 450;
+  letter-spacing: -.015em;
+}
+.badge, .tech-tags .badge, .skill-group .badge {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -.01em;
+}
+.art-window-top, .art-code, code, pre {
+  font-family: var(--font-mono);
+  font-weight: 450;
+  font-variant-ligatures: contextual common-ligatures;
+  letter-spacing: -.025em;
+}
+.art-code {
+  font-size: 14px;
+  line-height: 2.05;
+}
+.art-code b {
+  font-weight: 500;
+}
+.art-window-top {
+  letter-spacing: -.03em;
+}
+.art-preview strong {
+  font-family: var(--font-display);
+  font-size: clamp(21px, 1.7vw, 26px);
+  font-weight: 650;
+  line-height: 1.18;
+  letter-spacing: -.045em;
+}
+.art-preview div > span, .art-coordinate {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: .035em;
+}
+.art-preview div > span {
+  color: rgb(255 255 255 / .72);
+}
+.art-coordinate {
+  letter-spacing: .055em;
+}
+.case-title > strong {
+  font-family: var(--font-display);
+  font-weight: 650;
+  letter-spacing: -.035em;
+}
+.dialog-info strong, .education-item span, .timeline-placeholder p {
+  font-variant-numeric: tabular-nums;
+}
+@media (max-width: 640px) {
+  .hero h1 {
+    letter-spacing: -.045em;
+  }
+  .hero-kicker {
+    letter-spacing: .035em;
+  }
+  .art-preview strong {
+    font-size: 22px;
   }
 }

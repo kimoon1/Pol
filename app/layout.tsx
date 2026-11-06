@@ -1,5 +1,8 @@
 import type { Metadata, Viewport } from 'next';
 import Shell from '@/components/shell';
+import 'pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css';
+import '@fontsource-variable/space-grotesk';
+import '@fontsource-variable/jetbrains-mono';
 import './globals.css';
 export const metadata: Metadata = {
   title: { default: '이기문 — Full-stack Developer | pol.', template: '%s | pol.' },
