@@ -1,6 +1,6 @@
 # pol. — Developer Portfolio
 
-React·Next.js·TypeScript 프론트엔드 개발자 이기문의 포트폴리오입니다. ERP 권한 기반 챗봇, 보안을 위한 업로드 서버 재구축, 진행 중인 AI 광고 이미지·영상 생성과 기존 React 서비스 경험을 소개합니다.
+React·Next.js·TypeScript 프론트엔드 개발자 이기문의 포트폴리오입니다. ERP 권한 기반 챗봇, PHP 8.3·DDD 업로드 리팩토링과 SQS 연동, 진행 중인 AI 광고 이미지·영상 생성과 기존 React 서비스 경험을 소개합니다.
 
 ## 시작하기
 
@@ -40,6 +40,7 @@ npm run test:export
 
 - `lib/portfolio.ts`: 프로필, 프로젝트 10개, 경력·교육, 기술 그룹, 대표 여부·진행 상태·표시 순서. AI 광고 생성기는 NestJS·FastAPI 기반 외부 API 생성, 광고매체 등록, 대시보드와 LLM 성과 분석을 개발 중입니다. 기간·완료 범위·성과를 추정하지 않습니다.
 - `lib/case-studies.ts`: 담당 범위, 구현 판단과 범위, 관련 프로젝트. ERP의 벡터 검색 미사용과 권한별 조직·정책 조회를 명시합니다.
+- 업로드 사례는 컨버터의 수신·Private S3 저장·검사 → SQS 작업 전달 → 업로드 서버의 미디어 처리 → SQS 완료 알림 → API 서버의 크론·DB 반영을 다룹니다. PHP 코드 전반과 연동 구현을 본인 기여로, 서버·AWS·rsync 구축은 전담팀 역할로 구분합니다.
 - `docs/content-checklist.md`: 화면 자료·실제 데이터 흐름·검증 결과 등 다음 콘텐츠 업데이트에 필요한 편집용 메모.
 - `app/projects/[slug]/page.tsx`: `generateStaticParams` 기반 상세 경로 생성과 프로젝트별 메타데이터.
 - `app/about/page.tsx`, `app/resume/page.tsx`: 공통 경력 데이터로 소개와 인쇄용 요약을 구성합니다.
@@ -57,6 +58,7 @@ npm run test:export
 - `components/projects-explorer.tsx`: 검색·필터와 기존 쿼리 링크 호환 처리.
 - `components/project-card.tsx`: 상세 페이지로 연결되는 공통 프로젝트 카드.
 - `components/case-diagram.tsx`: 확인된 사실만 표시하는 프로젝트별 범위·구조 요약. 실제 UI나 상세 내부 설계를 재현한 자료가 아닙니다.
+- `components/upload-architecture.tsx`: 업로드 서버의 변경 전후와 서버별 처리 책임·SQS 메시지 흐름. SQS는 용도로 표시하며 실제 큐 개수를 뜻하지 않습니다.
 - `components/print-resume.tsx`: 브라우저의 인쇄·PDF 저장 기능.
 
 ## 디자인

@@ -1,0 +1,119 @@
+.case-context {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.8fr);
+  gap: 28px;
+  margin-top: 24px;
+}
+.case-context h2 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+.case-context p {
+  font-size: 15px;
+  line-height: 1.9;
+  color: var(--muted);
+  word-break: keep-all;
+}
+.upload-comparison {
+  margin-bottom: 30px;
+}
+.upload-comparison h3 {
+  font-size: 18px;
+}
+.upload-pipeline {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 28px;
+}
+.upload-pipeline > li {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--canvas);
+}
+.upload-pipeline > .pipeline-message {
+  border-color: rgb(41 98 255 / 0.18);
+  background: var(--blue-wash);
+}
+.pipeline-number {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--primary);
+  font: 600 14px var(--font-display);
+  border: 1px solid var(--border);
+}
+.pipeline-content {
+  flex: 1;
+  min-width: 0;
+}
+.pipeline-actor {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--primary);
+}
+.pipeline-content h3 {
+  font-size: 17px;
+  margin: 8px 0;
+  line-height: 1.6;
+  word-break: keep-all;
+}
+.pipeline-content p {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.8;
+  word-break: keep-all;
+}
+.pipeline-type {
+  flex-shrink: 0;
+  font: 500 13px var(--font-display);
+  color: var(--muted);
+  letter-spacing: 0.04em;
+  padding-top: 7px;
+}
+.pipeline-arrow {
+  position: absolute;
+  left: 30px;
+  bottom: -24px;
+  color: var(--primary);
+}
+.pipeline-caption {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.8;
+  margin-top: 20px;
+}
+@media (max-width: 800px) {
+  .case-context {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+}
+@media (max-width: 640px) {
+  .upload-pipeline > li {
+    padding: 18px 14px;
+    gap: 12px;
+  }
+  .pipeline-type {
+    display: none;
+  }
+  .pipeline-content h3 {
+    font-size: 16px;
+  }
+  .pipeline-arrow {
+    left: 23px;
+  }
+  .upload-comparison > div {
+    padding: 20px;
+  }
+}

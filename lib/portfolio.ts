@@ -35,6 +35,8 @@ export type Project = {
   status?: "completed" | "in-progress";
   featured?: boolean;
   updatedAt?: string;
+  environment?: string;
+  collaboration?: string;
   link?: { label: string; href: string };
 };
 export const projects: Project[] = [
@@ -98,28 +100,37 @@ export const projects: Project[] = [
   {
     id: "upload-server",
     number: "03",
-    name: "보안을 위한 업로드 서버 재구축",
-    subtitle: "검증과 공개 제공의 책임을 분리한 서버 구조",
-    category: "Infrastructure",
+    name: "PHP 업로드 서버 리팩토링",
+    subtitle: "PHP 8.3·DDD와 SQS로 검사·미디어 처리·DB 반영 분리",
+    category: "Platform",
     description:
-      "단일 업로드 서버의 보안 및 리소스 문제를 개선하기 위해 인프라 설계부터 개발까지 단일 담당자로 진행했습니다.",
-    stack: ["PHP", "rsync", "AWS SQS"],
+      "PHP 7.3 업로드 서버 코드를 PHP 8.3·DDD 기반으로 전면 리팩토링했습니다. 인프라팀·보안팀과 협업해 컨버터·업로드 서버의 책임을 분리하고, SQS 작업·완료 메시지와 API 서버의 DB 반영을 연결하는 애플리케이션 코드를 담당했습니다.",
+    stack: ["PHP 8.3", "DDD", "AWS SQS", "AWS S3", "Vimeo"],
     features: [
-      "검증 서버와 퍼블릭 서버의 책임 분리",
-      "rsync를 통한 서버 이중화와 리소스 분산 설계",
-      "SQS 큐 서비스 추가",
+      "PHP 7.3 → 8.3 전환 및 DDD 기반 코드 재구성",
+      "컨버터 서버의 파일 수신·Private S3 저장·검사 처리",
+      "검사 통과 작업의 SQS 연동과 업로드 서버 처리",
+      "영상 Vimeo 연동·이미지 크기별 변환·썸네일 생성",
+      "미디어 처리 완료 메시지의 SQS 등록",
+      "API 서버의 크론 기반 메시지 소비·완료 파일 DB 반영",
+      "DB 큐를 SQS로 전환하고 업로드 서버의 DB 직접 접근 제거",
     ],
-    challenge: "단일 업로드 서버에 보안과 리소스 문제가 집중되어 있었습니다.",
+    challenge:
+      "PHP 7.3 레거시와 DB 큐에 기반한 단일 업로드 서버의 처리 구조를 개선해야 했습니다. 보안 개선 요구에 맞춰 파일 검사·미디어 후처리·DB 반영의 책임과 권한을 나누고 코드를 재구성하는 작업이 필요했습니다.",
     solution:
-      "서버의 책임을 분리하고, rsync 기반 이중화 및 SQS 큐를 추가하는 방향으로 인프라와 업로드 서버를 재구축했습니다.",
+      "컨버터 서버는 업로드 수신·Private S3 저장·검사를 담당하고, 검사 통과 작업을 SQS로 전달하도록 구현했습니다. 업로드 서버는 Vimeo·이미지 후처리를 수행한 뒤 완료 메시지를 SQS에 등록합니다. API 서버는 크론으로 완료 메시지를 소비해 파일 정보를 DB에 반영합니다.",
     result:
-      "검증과 퍼블릭 제공의 책임을 분리하고 리소스를 분산하는 구조를 설계·개발했습니다.",
+      "검사·미디어 처리·DB 반영을 서버별로 분리하고 SQS 메시지로 연결했습니다. 업로드 서버의 DB 직접 접근을 제거하고, PHP 8.3·DDD 기반으로 업로드 처리 코드를 재구성했습니다.",
     period: "2025.07 — 2025.12",
     company: "(주)스냅컴퍼니",
-    role: "풀스택 팀원 · 인프라 설계·개발 단일 담당",
+    role: "PHP 처리 코드 전반 · SQS 연동 · API 완료 반영",
+    environment: "4코어·8GB 서버를 이중화한 운영 환경",
+    collaboration:
+      "인프라팀·보안팀과 협업했습니다. 서버·AWS 리소스·rsync 환경 구축은 전담팀이 맡았으며, 저는 PHP 애플리케이션 코드 전반과 서비스 연동을 담당했습니다.",
     kind: "system",
-    visualSteps: ["책임 분리", "rsync 이중화", "SQS 큐 추가"],
+    visualSteps: ["파일 검사", "미디어 처리", "DB 반영"],
     featured: true,
+    updatedAt: "2026-11-09",
   },
   {
     id: "legacy-snap",
@@ -316,7 +327,7 @@ export const careers = [
     period: "2024.12 — 재직 중",
     role: "정규직 · 풀스택 팀원",
     description:
-      "ERP AI 챗봇·Slack 알림, S3 파일 전달 구조 개선, 업로드 서버 재구축, PHP 레거시 전환, MSA 서비스 초기 구조 구성.",
+      "ERP AI 챗봇·Slack 알림, S3 파일 전달 구조 개선, PHP 8.3·DDD 업로드 리팩토링과 SQS 연동, PHP 레거시 전환, MSA 서비스 초기 구조 구성.",
     projects: ["erp-ai", "upload-server", "legacy-snap", "s3-transfer", "msa"],
   },
   {
@@ -376,11 +387,11 @@ export const implementedFeatures = [
     project: "erp-ai",
   },
   {
-    title: "파일 전달·업로드 인프라",
-    category: "SERVICE INFRASTRUCTURE",
+    title: "업로드 처리·메시지 연동",
+    category: "UPLOAD & MESSAGING",
     description:
-      "S3 기반 파일 전달 구조 개선과 업로드 서버 책임 분리, rsync 이중화, SQS 큐 추가를 수행했습니다.",
-    tags: ["AWS S3", "rsync", "SQS"],
+      "PHP 8.3·DDD로 업로드 코드를 재구성하고 검사·미디어 후처리·API 서버의 DB 반영을 SQS로 연결했습니다. 인프라·보안팀과 협업하며 애플리케이션 코드를 담당했습니다.",
+    tags: ["PHP 8.3", "DDD", "SQS"],
     project: "upload-server",
   },
   {

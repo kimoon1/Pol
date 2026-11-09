@@ -67,6 +67,16 @@ export default function ResumePage() {
               <strong>담당:</strong> {project.role}
             </p>
             <p>{project.description}</p>
+            {project.environment && (
+              <p>
+                <strong>운영 환경:</strong> {project.environment}
+              </p>
+            )}
+            {project.collaboration && (
+              <p>
+                <strong>협업:</strong> {project.collaboration}
+              </p>
+            )}
             <p>{project.result}</p>
           </div>
         ))}
