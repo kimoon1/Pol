@@ -2,7 +2,7 @@ export type CaseStudy = {
   focus: string;
   responsibilities: { title: string; description: string }[];
   decisions: { title: string; description: string }[];
-  scope: string;
+  scope?: string;
   related: string[];
   diagramPlacement?: "overview" | "implementation";
   codeExample?: {
@@ -20,44 +20,44 @@ export type CaseStudy = {
 /** Only supplied project facts belong here. Evidence requests live in docs/content-checklist.md. */
 export const caseStudies: Record<string, CaseStudy> = {
   "erp-ai": {
-    focus: "프론트엔드와 Python 챗봇을 함께 구현한 업무 기능",
+    focus: "질문하는 화면부터 권한을 반영하는 조회 기능까지",
     responsibilities: [
       {
-        title: "ERP 챗봇 화면",
+        title: "프론트엔드 · ERP 챗봇 화면",
         description:
-          "사내 조직과 정책을 조회하는 챗봇의 프론트엔드를 개발했습니다.",
+          "ERP에서 조직과 정책에 대한 질문을 입력하고 조회하는 챗봇 화면을 Next.js로 개발했습니다.",
       },
       {
-        title: "Python · LangGraph",
+        title: "백엔드 · 조회 기능 연결",
         description:
-          "Python·LangGraph로 슈퍼바이저 형태의 노드를 구성하고 조직·정책 조회 기능을 연결했습니다.",
+          "Python·LangGraph 구현을 맡아 조직·정책 조회 기능과 슈퍼바이저 형태의 노드를 구성했습니다.",
       },
       {
-        title: "사용자별 노드 기능 권한 검사",
+        title: "권한 · 노드 기능 사용 검사",
         description:
           "사용자가 LangGraph의 각 노드 기능을 사용할 때 해당 기능에 대한 권한을 검사하도록 구현했습니다.",
       },
     ],
     decisions: [
       {
-        title: "슈퍼바이저 기반 노드 구성",
+        title: "조회 기능을 노드 단위로 구성",
         description:
-          "LangGraph 노드를 슈퍼바이저 형태로 구성하고, 노드별 조회를 병행하도록 설계했습니다.",
+          "조직·정책 조회 기능을 슈퍼바이저 형태의 LangGraph 노드로 구성했습니다. 노드별 조회를 병행하도록 설계해 업무 조회를 연결했습니다.",
       },
       {
-        title: "노드 기능 사용 시 권한 검사",
+        title: "권한 검사 위치를 기능 사용 지점에 반영",
         description:
-          "사용자마다 LangGraph 노드의 기능 사용 권한을 확인해 허용된 기능을 이용하도록 구성했습니다.",
+          "사용자가 각 노드의 기능을 사용할 때 해당 권한을 검사하도록 구현했습니다. 노드별 조회 기능에 사용자마다 허용된 범위를 반영하는 구성입니다.",
       },
       {
-        title: "벡터 검색 없이 구성",
+        title: "벡터 검색 미사용",
         description:
-          "이 프로젝트의 챗봇은 벡터 검색을 사용하지 않습니다. Python·LangGraph 기반의 업무 정보 조회 기능입니다.",
+          "이 사례는 Python·LangGraph로 조직·정책 조회 기능을 연결한 챗봇입니다. 벡터 검색 기반의 문서 검색 기능은 사용하지 않았습니다.",
       },
     ],
     scope:
-      "담당 범위: 챗봇 프론트엔드, Python·LangGraph의 슈퍼바이저 노드 구성, 사용자별 노드 기능 권한 검사와 조직·정책 조회. 업무 규칙 기반 Slack 알림도 개발했습니다.",
-    related: ["commerce", "education"],
+      "별도 업무 기능으로 업무 규칙 기반 Slack 알림도 개발했습니다.",
+    related: ["legacy-snap", "commerce"],
   },
   "upload-server": {
     focus: "PHP 8.3·DDD 리팩토링과 메시지 기반 업로드 처리",
@@ -161,7 +161,7 @@ export const caseStudies: Record<string, CaseStudy> = {
     related: ["erp-ai", "commerce"],
   },
   "legacy-snap": {
-    focus: "운영 중인 기능을 검증하며 진행한 React 전환",
+    focus: "결제·쇼핑몰·게시판을 운영하며 바꾼 화면과 API",
     responsibilities: [
       {
         title: "React UI 전환",
@@ -181,21 +181,20 @@ export const caseStudies: Record<string, CaseStudy> = {
     ],
     decisions: [
       {
-        title: "기능 단위 전환",
+        title: "운영을 이어가는 기능 단위 전환",
         description:
           "운영을 이어 가면서 기존 기능을 검증할 수 있도록 기능 단위로 구조 전환을 진행했습니다.",
       },
     ],
-    scope: "프론트 팀원으로 React·Node.js 전환을 구현한 범위입니다.",
-    related: ["legacy-bom", "commerce"],
+    related: ["commerce", "legacy-bom"],
   },
   commerce: {
-    focus: "인증·본인확인·결제를 연결하는 React 화면 설계",
+    focus: "서로 다른 인증·결제 서비스를 하나의 구매 흐름으로",
     responsibilities: [
       {
         title: "화면 구조와 핵심 UI",
         description:
-          "팀장 및 주요 개발자로 React 화면 구조와 쇼핑몰 핵심 UI를 설계·구현했습니다.",
+          "팀장 및 주요 개발자로 쇼핑몰의 React 화면 구조를 설계하고 핵심 UI를 구현했습니다.",
       },
       {
         title: "인증·본인확인",
@@ -209,13 +208,18 @@ export const caseStudies: Record<string, CaseStudy> = {
     ],
     decisions: [
       {
-        title: "외부 서비스와 구매 흐름 연결",
+        title: "React 화면과 외부 인증 서비스 연결",
         description:
-          "로그인부터 본인확인, 결제까지 이어지는 흐름을 React UI와 외부 서비스 연동으로 구성했습니다.",
+          "구글·카카오·페이스북 OAuth와 포트원·나이스 본인인증을 React 화면에 연결했습니다. 로그인과 본인확인이 구매 흐름 안에서 이어지도록 구성했습니다.",
+      },
+      {
+        title: "결제 연동과 오류 대응을 함께 구현",
+        description:
+          "PG 결제 연동에 더해 결제 오류에 대응하는 로직을 구현했습니다. 외부 결제 서비스를 연결하는 범위와 오류 대응 로직을 모두 맡았습니다.",
       },
     ],
     scope:
-      "React UI와 인증·결제 연동, 오류 대응, SEO 메타 태그 정비 및 페이지 로딩 성능 개선을 담당했습니다.",
-    related: ["legacy-bom", "education"],
+      "이외에 SEO 메타 태그 정비와 페이지 로딩 성능 개선 작업을 담당했습니다.",
+    related: ["legacy-snap", "education"],
   },
 };

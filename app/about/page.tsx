@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import {
   ArrowUpRight,
-  Github,
   BriefcaseBusiness,
   GraduationCap,
   Code2,
@@ -10,7 +9,7 @@ import {
   Layers,
 } from "lucide-react";
 import { Badge, PageHeading, SectionHeading } from "@/components/ui";
-import CopyProfile from "@/components/copy-profile";
+import ContactActions from "@/components/contact-actions";
 import {
   profile,
   careers,
@@ -172,7 +171,7 @@ export default function AboutPage() {
         <SectionHeading title="업무에서 활용한 AI" />
         <ul className="ai-list">
           <li>ERP 챗봇 프론트엔드와 Python·LangGraph 기반 챗봇 구현</li>
-          <li>사용자 권한에 따른 사내 조직·정책 조회 · 벡터 검색 미사용</li>
+          <li>사용자 권한을 검사하고 허용된 사내 조직·정책 조회 기능 연결</li>
           <li>광고 이미지·영상 생성·제작 프로젝트 진행 중</li>
         </ul>
         <div className="external-work-links">
@@ -189,25 +188,13 @@ export default function AboutPage() {
       <section className="contact-panel">
         <div>
           <span className="eyebrow">LET’S BUILD TOGETHER</span>
-          <h2>경험을 더 자세히 살펴보세요.</h2>
-          <p>경력 요약과 공개 작업은 아래에서 확인할 수 있습니다.</p>
-        </div>
-        <div className="contact-actions">
-          <Link href="/resume/" className="button button-primary">
-            경력 요약
-            <ArrowUpRight size={16} />
-          </Link>
-          <a
-            href={profile.github}
-            target="_blank"
-            rel="noreferrer"
-            className="button button-secondary"
-          >
-            <Github size={17} />
-            GitHub
+          <h2>함께 만들 서비스가 있나요?</h2>
+          <p>프로젝트와 채용에 관한 이야기는 이메일로 편하게 보내주세요.</p>
+          <a className="contact-email" href={`mailto:${profile.email}`}>
+            {profile.email}
           </a>
-          <CopyProfile />
         </div>
+        <ContactActions />
       </section>
     </>
   );

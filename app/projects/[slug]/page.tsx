@@ -221,7 +221,7 @@ export default async function ProjectPage({ params }: Props) {
               </span>
               <h2>결과</h2>
               <p>{project.result}</p>
-              {study && <p className="case-scope">{study.scope}</p>}
+              {study?.scope && <p className="case-scope">{study.scope}</p>}
               {project.updatedAt && (
                 <p className="case-updated">
                   최근 업데이트{" "}

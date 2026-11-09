@@ -1,11 +1,8 @@
 import {
   ArrowDown,
-  ArrowUpRight,
-  Code2,
   Database,
   Layers,
   Smartphone,
-  Check,
   Workflow,
 } from "lucide-react";
 import type { Project } from "@/lib/portfolio";
@@ -26,48 +23,30 @@ export default function ProjectVisual({
           : Workflow;
   return (
     <div
-      className={`project-visual case-visual case-${project.kind} ${large ? "visual-large" : ""}`}
+      className={`project-visual contribution-visual ${large ? "visual-large" : ""}`}
       aria-hidden="true"
     >
-      <div className="case-grid" />
-      <div className="case-frame">
-        <div className="case-frame-top">
+      <div className="contribution-map">
+        <div className="contribution-map-header">
           <span>
-            <Icon size={13} />
-            {project.category.toUpperCase()} / {project.number}
+            <Icon size={15} />
+            담당 흐름
           </span>
-          <Code2 size={13} />
+          <span>{project.number}</span>
         </div>
-        <div className="case-title">
-          <span>{project.company}</span>
-          <strong>{project.name}</strong>
-          <ArrowUpRight size={24} />
-        </div>
-        <div className="case-flow">
+        <ol className="contribution-flow">
           {project.visualSteps.map((step, i) => (
-            <div className="case-step-wrap" key={step}>
-              <div className="case-step">
-                <span>0{i + 1}</span>
-                <strong>{step}</strong>
-                {i === 2 && project.status !== "in-progress" && (
-                  <Check size={13} />
-                )}
-              </div>
+            <li key={step}>
+              <span>0{i + 1}</span>
+              <strong>{step}</strong>
               {i < project.visualSteps.length - 1 && <ArrowDown size={12} />}
-            </div>
+            </li>
           ))}
-        </div>
-        <div className="case-tech">
-          {project.stack.slice(0, 3).map((t) => (
-            <span key={t}>{t}</span>
-          ))}
-        </div>
+        </ol>
+        <span className="contribution-map-note">
+          {project.status === "in-progress" ? "개발 주제 · 진행 중" : "구성 개념도"}
+        </span>
       </div>
-      <span className="case-visual-note">
-        {project.status === "in-progress"
-          ? "개발 주제 · 진행 중"
-          : "구성 개념도"}
-      </span>
     </div>
   );
 }

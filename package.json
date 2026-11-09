@@ -7,7 +7,8 @@
     "build": "next build --webpack",
     "start": "next start",
     "typecheck": "tsc --noEmit",
-    "test:export": "node scripts/check-export.mjs"
+    "test:export": "node scripts/check-export.mjs",
+    "test:search": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/check-project-search.mjs"
   },
   "dependencies": {
     "next": "16.4.5",

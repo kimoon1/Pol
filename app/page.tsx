@@ -15,17 +15,18 @@ import {
 } from "@/lib/portfolio";
 import { SectionHeading } from "@/components/ui";
 import ProjectCard from "@/components/project-card";
+import ContactActions from "@/components/contact-actions";
 
 export default function HomePage() {
-  const frontendProjects = orderedProjects.filter((project) =>
-    ["legacy-snap", "commerce"].includes(project.id),
+  const serviceProjects = orderedProjects.filter((project) =>
+    ["upload-server", "ai-ad-generator"].includes(project.id),
   );
   return (
     <>
       <div className="dashboard-welcome">
         <div>
           <span className="eyebrow">LEE KIMOON / SELECTED WORK</span>
-          <p>안녕하세요, 프론트엔드 개발자 이기문입니다.</p>
+          <p>이기문 · React / Next.js / TypeScript</p>
         </div>
         <span className="edition-label">PORTFOLIO — 2026</span>
       </div>
@@ -76,19 +77,12 @@ export default function HomePage() {
               <small>SI → 서비스 회사</small>
             </strong>
           </div>
-          <div>
-            <span>백엔드 경험</span>
-            <strong>
-              NestJS · FastAPI
-              <small>총 경력 내 {profile.backendExperience}</small>
-            </strong>
-          </div>
         </aside>
       </section>
       <section id="selected-work" className="selected-work">
         <SectionHeading
           title="대표 프로젝트"
-          subtitle="화면과 데이터, 권한과 운영을 연결한 실무 경험입니다."
+          subtitle="챗봇 화면, 운영 중인 React 전환, 인증부터 결제까지. 직접 맡은 화면과 흐름입니다."
           href="/projects/"
           linkText="전체 프로젝트"
         />
@@ -100,11 +94,11 @@ export default function HomePage() {
       </section>
       <section className="frontend-work">
         <SectionHeading
-          title="React로 쌓아 온 경험"
-          subtitle="운영 중인 서비스의 전환과 인증·결제 흐름 구현."
+          title="화면을 넘어 서비스까지"
+          subtitle="백엔드와 운영 구조를 이해하며 넓혀 온 개발 경험입니다."
         />
         <div className="frontend-project-list">
-          {frontendProjects.map((project, index) => (
+          {serviceProjects.map((project, index) => (
             <Link href={projectHref(project.id)} key={project.id}>
               <span className="project-list-number">0{index + 1}</span>
               <div>
@@ -137,24 +131,13 @@ export default function HomePage() {
       <section className="contact-panel">
         <div>
           <span className="eyebrow">LET’S BUILD TOGETHER</span>
-          <h2>더 자세한 경험이 궁금하다면</h2>
-          <p>경력 요약과 프로젝트별 담당 범위를 확인하세요.</p>
-        </div>
-        <div className="contact-actions">
-          <Link href="/resume/" className="button button-primary">
-            경력 요약 보기
-            <ArrowUpRight size={16} />
-          </Link>
-          <a
-            href={profile.github}
-            target="_blank"
-            rel="noreferrer"
-            className="button button-secondary"
-          >
-            GitHub
-            <ArrowUpRight size={16} />
+          <h2>함께 만들 서비스가 있나요?</h2>
+          <p>프로젝트와 채용에 관한 이야기는 이메일로 편하게 보내주세요.</p>
+          <a className="contact-email" href={`mailto:${profile.email}`}>
+            {profile.email}
           </a>
         </div>
+        <ContactActions />
       </section>
     </>
   );

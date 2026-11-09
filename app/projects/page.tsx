@@ -9,7 +9,7 @@ export default function ProjectsPage() {
       <PageHeading
         eyebrow="SELECTED WORK"
         title="만들어 온 것들."
-        description="ERP 챗봇, 업로드 서버, AI 광고 생성부터 React 서비스 개발까지. 직접 담당한 역할과 구현 내용을 담았습니다."
+        description="ERP 챗봇 화면, React 전환과 쇼핑몰 개발을 중심으로, API·서버·모바일까지 직접 맡은 일을 소개합니다."
         aside={
           <span className="page-index">
             01 — {String(projects.length).padStart(2, "0")}

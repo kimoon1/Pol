@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     template: "%s | pol.",
   },
   description:
-    "React·Next.js·TypeScript 프론트엔드 개발자 이기문. 권한 기반 ERP 챗봇, PHP 8.3·DDD 업로드 리팩토링과 SQS 연동, AI 광고 생성과 React 서비스 개발 경험을 소개합니다.",
+    "React·Next.js·TypeScript 프론트엔드 개발자 이기문. ERP 챗봇 화면, 운영 중인 React 전환과 쇼핑몰 인증·결제 흐름을 중심으로 API와 서비스 운영까지 연결한 경험을 소개합니다.",
   icons: { icon: "/icon.svg" },
 };
 export const viewport: Viewport = { width: "device-width", initialScale: 1 };

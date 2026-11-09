@@ -1,8 +1,9 @@
 /** Professional content curated from the resume supplied on 2026-11-06.
- * Contact details and the original PDF are intentionally excluded. */
+ * The public email was supplied on 2026-11-10. Phone and original PDF stay private. */
 export const profile = {
   name: "이기문",
   handle: "kimoon1",
+  email: "eekimoon123@naver.com",
   github: "https://github.com/kimoon1",
   repository: "https://github.com/kimoon1/Pol",
   title: "Frontend Developer",
@@ -12,7 +13,7 @@ export const profile = {
   introduction:
     "React·Next.js·TypeScript로 업무에 필요한 화면을 만드는 프론트엔드 개발자 이기문입니다.",
   summary:
-    "SI와 서비스 회사에서 웹 서비스를 개발해 왔습니다. NestJS·FastAPI 기반 백엔드 경험을 바탕으로 화면과 API, 권한과 운영 흐름까지 함께 고려합니다.",
+    "React·Next.js·TypeScript로 ERP 챗봇과 쇼핑몰의 사용자 흐름을 만들고, 운영 중인 PHP 화면을 React로 전환해 왔습니다. 백엔드 개발 경험을 바탕으로 화면과 API, 권한을 함께 고려합니다.",
 };
 export type Category = "Web" | "Platform" | "Mobile" | "Infrastructure";
 export type Project = {
@@ -44,10 +45,10 @@ export const projects: Project[] = [
     id: "erp-ai",
     number: "01",
     name: "권한 기반 ERP 챗봇",
-    subtitle: "사내 조직·정책 조회를 연결한 화면과 Python 챗봇",
+    subtitle: "업무 질문을 조직·정책 조회로 연결하는 Next.js 화면",
     category: "Platform",
     description:
-      "ERP에서 사내 조직과 정책을 자연어로 조회하는 챗봇의 프론트엔드와 Python·LangGraph 구현을 담당했습니다. 사용자 권한에 따라 조회 범위를 구분하며, 벡터 검색은 사용하지 않았습니다.",
+      "Next.js 기반 ERP 챗봇 화면과 Python·LangGraph 조회 기능을 함께 개발했습니다. 사내 조직과 정책에 대한 질문을 처리하는 화면부터 사용자별 기능 권한 검사까지 담당했습니다.",
     stack: ["Next.js", "Python", "FastAPI", "LangGraph"],
     features: [
       "ERP 챗봇 프론트엔드 개발",
@@ -59,11 +60,11 @@ export const projects: Project[] = [
       "업무 규칙 기반 Slack 알림 개발",
     ],
     challenge:
-      "사내 조직과 정책을 자연어로 조회하면서 사용자별로 허용된 정보 범위를 반영해야 했습니다.",
+      "ERP 안에서 사내 조직과 정책을 자연어로 조회할 수 있어야 했습니다. 같은 조회 기능이라도 사용자마다 허용된 범위가 달라, 질문을 받는 화면과 기능별 권한 처리를 함께 구성해야 했습니다.",
     solution:
-      "ERP 챗봇 화면과 Python·LangGraph를 구현했습니다. 노드는 슈퍼바이저 형태로 구성하고 노드별 조회를 병행하도록 설계했습니다. 사용자가 각 노드의 기능을 사용할 때 권한을 검사하며, 벡터 검색은 사용하지 않았습니다.",
+      "ERP의 질문 화면을 개발하고 Python·LangGraph의 슈퍼바이저 구성에 조직·정책 조회 노드를 연결했습니다. 각 노드의 기능 사용 시 사용자 권한을 검사하고, 노드별 조회를 병행하도록 설계했습니다.",
     result:
-      "사용자 권한에 따라 사내 조직과 정책을 조회할 수 있는 챗봇을 구현했습니다.",
+      "ERP 안에서 질문해 사내 조직과 정책을 조회하는 기능을 구현했습니다. 조회 노드의 기능을 사용할 때 사용자별 권한을 반영하도록 화면과 챗봇 기능을 연결했습니다.",
     period: "2025.09 — 2025.12",
     company: "(주)스냅컴퍼니",
     role: "챗봇 프론트엔드 · Python·LangGraph 개발",
@@ -130,7 +131,6 @@ export const projects: Project[] = [
       "인프라팀·보안팀과 협업했습니다. 서버·AWS 리소스·rsync 환경 구축은 전담팀이 맡았으며, 저는 PHP 애플리케이션 코드 전반과 서비스 연동을 담당했습니다.",
     kind: "system",
     visualSteps: ["파일 검사", "미디어 처리", "DB 반영"],
-    featured: true,
     updatedAt: "2026-11-10",
   },
   {
@@ -158,6 +158,7 @@ export const projects: Project[] = [
     role: "프론트 팀원 · React·Node.js 전환 구현",
     kind: "system",
     visualSteps: ["기존 기능 검증", "React UI", "Node.js API"],
+    featured: true,
   },
   {
     id: "msa",
@@ -200,15 +201,17 @@ export const projects: Project[] = [
       "SEO 메타 태그 정비 및 페이지 로딩 성능 개선",
     ],
     challenge:
-      "사용자의 로그인부터 인증, 결제까지 이어지는 쇼핑몰의 핵심 흐름을 구축해야 했습니다.",
+      "로그인·본인확인·결제에 서로 다른 외부 서비스를 사용하면서도, 사용자가 구매 절차를 이어갈 수 있는 쇼핑몰 화면이 필요했습니다. 결제 연동과 함께 결제 오류에 대응하는 로직도 구현해야 했습니다.",
     solution:
       "React 기반 UI를 설계하고 외부 인증 및 결제 서비스를 연동하면서 결제 오류 대응 로직을 구현했습니다.",
-    result: "로그인·인증·결제를 포함한 쇼핑몰 핵심 흐름을 구축했습니다.",
+    result:
+      "React 화면에 소셜 로그인·본인확인·PG 결제를 연결해 구매 흐름을 구축했습니다. 결제 오류 대응 로직도 함께 구현했습니다.",
     period: "2024.01 — 2024.06",
     company: "봄바람",
     role: "풀스택 팀장 · 주요 개발·UI 설계",
     kind: "commerce",
     visualSteps: ["OAuth 로그인", "본인인증", "PG 결제"],
+    featured: true,
   },
   {
     id: "helfu",
@@ -318,7 +321,6 @@ export const projects: Project[] = [
     kind: "workspace",
     visualSteps: ["소재 생성", "매체 등록", "성과 분석"],
     status: "in-progress",
-    featured: true,
     updatedAt: "2026-11-09",
   },
 ];
@@ -453,10 +455,10 @@ export const domains = [
 
 export const projectOrder = [
   "erp-ai",
-  "upload-server",
-  "ai-ad-generator",
   "legacy-snap",
   "commerce",
+  "upload-server",
+  "ai-ad-generator",
   "education",
   "s3-transfer",
   "legacy-bom",

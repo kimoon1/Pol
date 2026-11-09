@@ -1,6 +1,6 @@
 # pol. — Developer Portfolio
 
-React·Next.js·TypeScript 프론트엔드 개발자 이기문의 포트폴리오입니다. ERP 권한 기반 챗봇, PHP 8.3·DDD 업로드 리팩토링과 SQS 연동, 진행 중인 AI 광고 이미지·영상 생성과 기존 React 서비스 경험을 소개합니다.
+React·Next.js·TypeScript 프론트엔드 개발자 이기문의 포트폴리오입니다. ERP 챗봇 화면, 운영 중인 React 전환, 쇼핑몰의 인증·결제 흐름을 대표 사례로 소개하고 서버·AI 개발 경험을 연결합니다.
 
 ## 시작하기
 
@@ -15,6 +15,7 @@ npm run dev
 
 ```bash
 npm run typecheck
+npm run test:search
 npm run build
 npm run test:export
 ```
@@ -25,14 +26,14 @@ npm run test:export
 
 | 경로                | 내용                                                       |
 | ------------------- | ---------------------------------------------------------- |
-| `/`                 | 프론트엔드 소개, 대표 사례 3개, React 경험, 경력 요약      |
+| `/` | 프론트엔드 소개, 대표 사례 3개, 서비스 확장 경험, 이메일 연락 |
 | `/projects/`        | 분류·검색 필터와 프로젝트 목록                             |
 | `/projects/[slug]/` | 정적으로 생성되는 프로젝트별 상세 페이지와 공유 메타데이터 |
-| `/capabilities/`    | 실무 구현 경험 6개 영역과 관련 프로젝트 링크               |
+| `/capabilities/` | 기술을 선택해 적용 프로젝트를 찾는 기술별 경험 인덱스 |
 | `/about/`           | 소개, 경력·학력, 기술과 적용 사례, GitHub 연결             |
 | `/resume/`          | 인쇄·PDF 저장 가능한 공개 경력 요약                        |
 
-기존 `/projects/?project=erp-ai` 형태의 링크도 해당 상세 페이지로 연결합니다. 공개 사이트 주소나 개인 연락처는 추정해 추가하지 않았습니다.
+기존 `/projects/?project=erp-ai` 형태의 링크도 해당 상세 페이지로 연결합니다. `/projects/?filter=Web&q=React`처럼 분류·검색 조건을 URL에 저장하며, 상세 페이지에서 브라우저 뒤로 가기를 하면 조건과 목록 위치를 복원합니다. 공개 이메일은 2026년 11월 10일 사용자가 제공한 주소만 사용합니다.
 
 ## 콘텐츠와 수정 방법
 
@@ -47,17 +48,17 @@ npm run test:export
 - `app/projects/[slug]/page.tsx`: `generateStaticParams` 기반 상세 경로 생성과 프로젝트별 메타데이터.
 - `app/about/page.tsx`, `app/resume/page.tsx`: 공통 경력 데이터로 소개와 인쇄용 요약을 구성합니다.
 - 실제 서비스 화면을 제공받지 않아 프로젝트 비주얼은 구성 개념도로 표시합니다. 개념도를 실제 UI나 상세 시스템 설계로 해석하지 않습니다.
-- `/capabilities/`는 이력서의 실무 구현 경험만 표시합니다. 포트폴리오용 인터랙션 데모는 제거했습니다.
+- `/capabilities/`는 기술별 검색 링크와 관련 사례를 연결합니다. 기술 태그는 실제 프로젝트에 기록된 기술을 사용하며, 별도의 구현 데모는 만들지 않습니다.
 - 공개 서비스 링크는 기존 helfu Google Play 링크를 사용합니다. 현재 서비스 전체 기능을 과거 개인 기여로 추가하지 않았습니다.
-- 전화번호·개인 이메일·이력서 원본 PDF와 경력증명서는 공개하지 않습니다. 경력 요약은 기존 공개 프로필 데이터로 생성하며, 비어 있는 증빙 목록은 제거했습니다.
+- 사용자가 공개 연락처로 제공한 이메일을 홈·소개·메뉴·경력 요약에 표시합니다. 전화번호·이력서 원본 PDF와 경력증명서는 공개하지 않습니다. 경력 요약은 공개 프로필 데이터로 생성합니다.
 - MSA 사례는 이력서에 구체적인 기술·수치가 없어 초기 구조 구성 범위로만 소개합니다. 교육 과정의 CCNA·CCNP는 자격증 취득으로 표현하지 않습니다.
 
 ## 공용 컴포넌트
 
 - `components/shell.tsx`: 사이드바, 활성 메뉴, 모바일 메뉴, 헤더, 푸터.
 - `components/ui.tsx`: 공용 Badge, 제목, 지표 카드, 빈 상태. 버튼은 `.button` 공용 클래스와 변형으로 구성합니다.
-- `components/project-visual.tsx`: 외부 이미지에 의존하지 않는 프로젝트 구성 개념도.
-- `components/projects-explorer.tsx`: 검색·필터와 기존 쿼리 링크 호환 처리.
+- `components/project-visual.tsx`: 확인된 담당 흐름을 표시하는 구성 개념도. 실제 서비스 화면 캡처로 표현하지 않습니다.
+- `components/projects-explorer.tsx`: URL 기반 검색·필터, 목록 스크롤 복원과 기존 쿼리 링크 호환 처리. `lib/project-search.ts`의 URL 변환을 `npm run test:search`로 검증합니다.
 - `components/project-card.tsx`: 상세 페이지로 연결되는 공통 프로젝트 카드.
 - `components/case-diagram.tsx`: 확인된 사실만 표시하는 프로젝트별 범위·구조 요약. 실제 UI나 상세 내부 설계를 재현한 자료가 아닙니다.
 - `components/upload-architecture.tsx`: 업로드 서버의 변경 전후와 서버별 처리 책임·SQS 메시지 흐름. SQS는 용도로 표시하며 실제 큐 개수를 뜻하지 않습니다.

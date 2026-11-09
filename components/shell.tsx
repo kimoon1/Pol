@@ -14,6 +14,7 @@ import {
   ChevronRight,
   Command,
   FileText,
+  Mail,
 } from "lucide-react";
 import { profile } from "@/lib/portfolio";
 const links = [
@@ -21,7 +22,7 @@ const links = [
   { href: "/projects/", label: "프로젝트", en: "Projects", icon: FolderKanban },
   {
     href: "/capabilities/",
-    label: "구현 기능",
+    label: "기술별 경험",
     en: "Capabilities",
     icon: Blocks,
   },
@@ -138,6 +139,11 @@ export default function Shell({ children }: { children: React.ReactNode }) {
           <span>Code. Create. Refine.</span>
         </div>
         <div className="sidebar-bottom">
+          <a href={`mailto:${profile.email}`} className="github-link">
+            <Mail size={18} />
+            <span>이메일 연락</span>
+            <ArrowUpRight size={15} />
+          </a>
           <a
             href={profile.github}
             target="_blank"

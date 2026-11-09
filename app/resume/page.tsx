@@ -29,6 +29,7 @@ export default function ResumePage() {
             <span>{profile.title}</span>
           </h1>
           <p>총 경력 {profile.experience} · React / Next.js / TypeScript</p>
+          <p><a href={`mailto:${profile.email}`}>{profile.email}</a></p>
           <a href={profile.github}>{profile.github}</a>
         </div>
         <PrintResume />
@@ -66,7 +67,6 @@ export default function ResumePage() {
             <p>
               <strong>담당:</strong> {project.role}
             </p>
-            <p>{project.description}</p>
             {project.environment && (
               <p>
                 <strong>운영 환경:</strong> {project.environment}
@@ -77,7 +77,7 @@ export default function ResumePage() {
                 <strong>협업:</strong> {project.collaboration}
               </p>
             )}
-            <p>{project.result}</p>
+            <p><strong>구현 결과:</strong> {project.result}</p>
           </div>
         ))}
       </section>

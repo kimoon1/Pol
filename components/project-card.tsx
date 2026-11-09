@@ -31,6 +31,10 @@ export default function ProjectCard({
           <ArrowUpRight size={20} aria-hidden="true" />
         </Heading>
         <p>{project.subtitle}</p>
+        <div className="project-contribution">
+          <span>직접 담당</span>
+          <strong>{project.role}</strong>
+        </div>
         <div className="tech-tags">
           {project.stack.map((tech) => (
             <Badge key={tech}>{tech}</Badge>
