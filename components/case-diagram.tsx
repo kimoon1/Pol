@@ -22,19 +22,19 @@ export default function CaseDiagram({ id }: { id: string }) {
           <ArrowRight className="diagram-arrow" aria-hidden="true" />
           <div>
             <Workflow aria-hidden="true" />
-            <strong>Python · LangGraph</strong>
-            <span>권한 검사 툴 · user_pk</span>
+            <strong>슈퍼바이저 구성</strong>
+            <span>Python · LangGraph</span>
           </div>
           <ArrowRight className="diagram-arrow" aria-hidden="true" />
           <div>
             <Database aria-hidden="true" />
-            <strong>노드별 조회</strong>
-            <span>사내 조직 · 정책 · 병행 설계</span>
+            <strong>노드별 기능</strong>
+            <span>조직·정책 조회 · 권한 검사</span>
           </div>
         </div>
         <p className="diagram-boundary">
           <ShieldCheck size={18} aria-hidden="true" />
-          LangGraph 내 권한 검사 · 노드별 조회 병행 설계 · 벡터 검색 미사용
+          노드 기능 사용 시 사용자별 권한 검사 · 조회 병행 설계 · 벡터 검색 미사용
         </p>
       </figure>
     );
