@@ -124,7 +124,7 @@ export const projects: Project[] = [
     period: "2025.07 — 2025.12",
     company: "(주)스냅컴퍼니",
     role: "PHP 처리 코드 전반 · SQS 연동 · API 완료 반영",
-    environment: "4코어·8GB 서버를 이중화한 운영 환경",
+    environment: "컨버터·업로드·API 서버를 분리하고, Private S3·SQS·Vimeo를 연동한 비동기 처리 환경",
     collaboration:
       "인프라팀·보안팀과 협업했습니다. 서버·AWS 리소스·rsync 환경 구축은 전담팀이 맡았으며, 저는 PHP 애플리케이션 코드 전반과 서비스 연동을 담당했습니다.",
     kind: "system",
