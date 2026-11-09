@@ -40,6 +40,7 @@ export default async function ProjectPage({ params }: Props) {
       (id) => projects.find((item) => item.id === id) ?? [],
     ) ?? [];
   const inProgress = project.status === "in-progress";
+  const diagramInImplementation = study?.diagramPlacement === "implementation";
   return (
     <article className="case-study">
       <Link className="text-link case-back" href="/projects/">
@@ -97,7 +98,7 @@ export default async function ProjectPage({ params }: Props) {
           )}
         </section>
       )}
-      <CaseDiagram id={slug} />
+      {!diagramInImplementation && <CaseDiagram id={slug} />}
       {inProgress ? (
         <section className="case-overview panel progress-summary">
           <span className="eyebrow">IN PROGRESS</span>
@@ -126,6 +127,7 @@ export default async function ProjectPage({ params }: Props) {
             <a href="#problem">해결할 문제</a>
             <a href="#role">담당 범위</a>
             <a href="#implementation">구현 내용</a>
+            {study?.verification && <a href="#verification">검증 사례</a>}
             <a href="#outcome">결과</a>
           </nav>
           <div className="case-body">
@@ -153,24 +155,70 @@ export default async function ProjectPage({ params }: Props) {
             <section id="implementation">
               <span className="eyebrow">03 / IMPLEMENTATION</span>
               <h2>구현 내용과 구조</h2>
-              <p>{project.solution}</p>
+              {study?.codeExample && (
+                <div className="case-code-example">
+                  <h3>{study.codeExample.title}</h3>
+                  <p>{study.codeExample.summary}</p>
+                  <dl>
+                    {study.codeExample.parts.map((part) => (
+                      <div key={part.name}>
+                        <dt>{part.name}</dt>
+                        <dd>{part.detail}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                </div>
+              )}
+              {diagramInImplementation && <CaseDiagram id={slug} />}
+              {!study?.decisions.length && <p>{project.solution}</p>}
               {study?.decisions.map((item) => (
                 <div className="decision" key={item.title}>
                   <h3>{item.title}</h3>
                   <p>{item.description}</p>
                 </div>
               ))}
-              <ul className="check-list">
-                {project.features.map((feature) => (
-                  <li key={feature}>
-                    <Check size={17} aria-hidden="true" />
-                    {feature}
-                  </li>
-                ))}
-              </ul>
+              {!study && (
+                <ul className="check-list">
+                  {project.features.map((feature) => (
+                    <li key={feature}>
+                      <Check size={17} aria-hidden="true" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              )}
             </section>
+            {study?.verification && (
+              <section id="verification">
+                <span className="eyebrow">04 / VERIFICATION</span>
+                <h2>검증 사례</h2>
+                <h3>{study.verification.title}</h3>
+                <p>{study.verification.summary}</p>
+                <table
+                  className="case-verification-table"
+                  aria-label="파일 검사 단계별 확인한 동작"
+                >
+                  <thead>
+                    <tr>
+                      <th scope="col">검사 상황</th>
+                      <th scope="col">확인한 동작</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {study.verification.cases.map((item) => (
+                      <tr key={item.scenario}>
+                        <th scope="row">{item.scenario}</th>
+                        <td>{item.result}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </section>
+            )}
             <section id="outcome">
-              <span className="eyebrow">04 / OUTCOME</span>
+              <span className="eyebrow">
+                {study?.verification ? "05" : "04"} / OUTCOME
+              </span>
               <h2>결과</h2>
               <p>{project.result}</p>
               {study && <p className="case-scope">{study.scope}</p>}

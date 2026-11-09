@@ -4,6 +4,17 @@ export type CaseStudy = {
   decisions: { title: string; description: string }[];
   scope: string;
   related: string[];
+  diagramPlacement?: "overview" | "implementation";
+  codeExample?: {
+    title: string;
+    summary: string;
+    parts: { name: string; detail: string }[];
+  };
+  verification?: {
+    title: string;
+    summary: string;
+    cases: { scenario: string; result: string }[];
+  };
 };
 
 /** Only supplied project facts belong here. Evidence requests live in docs/content-checklist.md. */
@@ -50,52 +61,75 @@ export const caseStudies: Record<string, CaseStudy> = {
   },
   "upload-server": {
     focus: "PHP 8.3·DDD 리팩토링과 메시지 기반 업로드 처리",
+    diagramPlacement: "implementation",
     responsibilities: [
       {
-        title: "PHP 업로드 코드 전면 리팩토링",
+        title: "레거시 코드 재구성",
         description:
-          "PHP 7.3 레거시 코드를 PHP 8.3 버전대로 전환하고 DDD 기반으로 재구성했습니다. 인프라·보안팀과 협업하며 애플리케이션 코드 전반을 담당했습니다.",
+          "PHP 7.3 → 8.3 전환과 DDD 기반 리팩토링을 포함해 업로드 애플리케이션 코드 전반을 담당했습니다.",
       },
       {
-        title: "컨버터 서버의 수신·저장·검사",
+        title: "파일 검사와 미디어 후처리",
         description:
-          "파일을 수신해 Private S3에 저장하고 검사하는 컨버터 서버 코드를 구현했습니다. 검사 통과 파일과 업로드 정보를 후속 처리로 전달하도록 구성했습니다.",
-      },
-      {
-        title: "업로드 서버의 미디어 후처리",
-        description:
-          "영상은 Vimeo로 처리하고, 이미지는 크기별 변환과 썸네일 생성을 수행하는 코드를 구현했습니다. 처리가 끝나면 완료 정보를 SQS에 등록하도록 연결했습니다.",
+          "컨버터의 파일 수신·저장·검사 코드와 업로드 서버의 Vimeo 연동·이미지 크기별 변환·썸네일 생성을 구현했습니다.",
       },
       {
         title: "SQS 연동과 API 서버의 완료 반영",
         description:
-          "기존 DB 큐를 SQS로 전환하는 연동을 담당했습니다. API 서버가 크론으로 완료 메시지를 소비해 업로드 파일 정보를 DB에 반영하고, 업로드 서버는 DB에 직접 접근하지 않는 구조로 변경했습니다.",
+          "작업·완료 메시지의 SQS 연동과 API 서버의 크론 기반 메시지 소비·업로드 파일 DB 반영을 구현했습니다.",
       },
     ],
     decisions: [
       {
-        title: "검사·미디어 처리·DB 반영의 책임 분리",
+        title: "검사와 후처리의 책임 구분",
         description:
-          "단일 업로드 서버의 역할을 컨버터 서버와 미디어 후처리 업로드 서버로 나누고, DB 반영은 API 서버가 맡도록 코드를 구성했습니다.",
+          "검사를 담당하는 컨버터와 미디어를 처리하는 업로드 서버를 나누고, 검사 통과 작업을 후속 단계로 넘기도록 구성했습니다.",
       },
       {
-        title: "DB 큐에서 SQS 메시지 연동으로 전환",
+        title: "DB 반영 책임을 API 서버에 집중",
         description:
-          "검사 통과 작업과 처리 완료 정보를 SQS 메시지로 전달하도록 구현했습니다. 업로드 서버의 DB 직접 접근을 제거하고 API 서버에서 완료 정보를 반영하도록 연결했습니다.",
-      },
-      {
-        title: "PHP 8.3·DDD 기반으로 코드 재구성",
-        description:
-          "PHP 버전 전환과 함께 기존 레거시 코드를 DDD 기반으로 재구성하고, 역할이 분리된 서버 환경에 맞춰 처리 코드를 리팩토링했습니다.",
-      },
-      {
-        title: "서버별 역할·권한에 맞춘 처리 구조",
-        description:
-          "기존 업로드 토큰 체계를 제거하고 컨버터·업로드·API 서버별 책임과 권한에 맞춰 애플리케이션 흐름을 재구성했습니다.",
+          "기존 DB 큐 의존을 SQS 메시지로 전환해 업로드 서버의 DB 직접 접근을 제거했습니다. 미디어 후처리와 업로드 결과 저장의 책임을 분리한 결정입니다.",
       },
     ],
+    codeExample: {
+      title: "DDD 적용 사례: 통신 규칙과 처리 코드 구분",
+      summary:
+        "DTO로 통신 규칙을 정의하고 Repository와 Service 코드를 분리했습니다. 외부 연동은 Service 코드에서 호출하는 형태로 구성했습니다.",
+      parts: [
+        { name: "DTO", detail: "전달하는 데이터의 통신 규칙을 정의합니다." },
+        {
+          name: "Repository · Service",
+          detail: "Repository 코드와 Service 코드를 분리해 관리합니다.",
+        },
+        {
+          name: "외부 연동 호출",
+          detail: "Service 코드에서 외부 연동을 호출합니다.",
+        },
+      ],
+    },
+    verification: {
+      title: "파일 검사와 큐 등록의 분기 확인",
+      summary:
+        "확장자를 먼저 검사하고, 통과한 파일에 용량·해시 등 파일 검사를 진행했습니다. 두 단계 모두 통과한 경우에만 후속 작업을 큐에 등록했습니다.",
+      cases: [
+        {
+          scenario: "허용하지 않는 파일 확장자",
+          result:
+            "업로드를 거부하고 프론트 알림을 표시합니다. 큐에 등록하지 않습니다.",
+        },
+        {
+          scenario: "확장자는 통과했지만 용량·해시 등 파일 검사에서 거부",
+          result:
+            "업로드를 거부하고 프론트 알림을 표시합니다. 큐에 등록하지 않습니다.",
+        },
+        {
+          scenario: "확장자와 후속 파일 검사 모두 통과",
+          result: "후속 처리를 위한 작업을 큐에 등록합니다.",
+        },
+      ],
+    },
     scope:
-      "인프라팀·보안팀과 연계한 PHP 애플리케이션 코드 개발 사례입니다. 서버·AWS 리소스·rsync 구축은 전담팀의 역할이며, 서비스 간 바이너리 전송을 줄인 S3 파일 전달 구조 개선은 별도 프로젝트입니다.",
+      "서비스 간 바이너리 전송을 줄인 S3 파일 전달 구조 개선은 별도 프로젝트로 소개합니다.",
     related: ["s3-transfer", "legacy-snap"],
   },
   "ai-ad-generator": {

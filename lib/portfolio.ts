@@ -104,7 +104,7 @@ export const projects: Project[] = [
     subtitle: "PHP 8.3·DDD와 SQS로 검사·미디어 처리·DB 반영 분리",
     category: "Platform",
     description:
-      "PHP 7.3 업로드 서버 코드를 PHP 8.3·DDD 기반으로 전면 리팩토링했습니다. 인프라팀·보안팀과 협업해 컨버터·업로드 서버의 책임을 분리하고, SQS 작업·완료 메시지와 API 서버의 DB 반영을 연결하는 애플리케이션 코드를 담당했습니다.",
+      "인프라팀·보안팀과 협업해 PHP 7.3 레거시를 PHP 8.3·DDD 기반으로 재구성하고, 검사·미디어 처리·DB 반영을 SQS로 연결하는 애플리케이션 코드를 담당했습니다.",
     stack: ["PHP 8.3", "DDD", "AWS SQS", "AWS S3", "Vimeo"],
     features: [
       "PHP 7.3 → 8.3 전환 및 DDD 기반 코드 재구성",
@@ -116,21 +116,22 @@ export const projects: Project[] = [
       "DB 큐를 SQS로 전환하고 업로드 서버의 DB 직접 접근 제거",
     ],
     challenge:
-      "PHP 7.3 레거시와 DB 큐에 기반한 단일 업로드 서버의 처리 구조를 개선해야 했습니다. 보안 개선 요구에 맞춰 파일 검사·미디어 후처리·DB 반영의 책임과 권한을 나누고 코드를 재구성하는 작업이 필요했습니다.",
+      "PHP 7.3 레거시와 DB 큐에 의존하던 단일 업로드 서버를 개선해야 했습니다. 보안 요구에 맞춰 검사·미디어 후처리·DB 반영의 책임과 권한을 나누는 것이 핵심 과제였습니다.",
     solution:
       "컨버터 서버는 업로드 수신·Private S3 저장·검사를 담당하고, 검사 통과 작업을 SQS로 전달하도록 구현했습니다. 업로드 서버는 Vimeo·이미지 후처리를 수행한 뒤 완료 메시지를 SQS에 등록합니다. API 서버는 크론으로 완료 메시지를 소비해 파일 정보를 DB에 반영합니다.",
     result:
-      "검사·미디어 처리·DB 반영을 서버별로 분리하고 SQS 메시지로 연결했습니다. 업로드 서버의 DB 직접 접근을 제거하고, PHP 8.3·DDD 기반으로 업로드 처리 코드를 재구성했습니다.",
+      "업로드 서버의 DB 직접 접근을 제거하고, 검사·미디어 처리·DB 반영의 책임을 서버별로 분리했습니다. 업로드 코드는 PHP 8.3·DDD 기반으로 전환했습니다.",
     period: "2025.07 — 2025.12",
     company: "(주)스냅컴퍼니",
     role: "PHP 처리 코드 전반 · SQS 연동 · API 완료 반영",
-    environment: "컨버터·업로드·API 서버를 분리하고, Private S3·SQS·Vimeo를 연동한 비동기 처리 환경",
+    environment:
+      "컨버터·업로드·API 서버를 분리하고, Private S3·SQS·Vimeo를 연동한 비동기 처리 환경",
     collaboration:
       "인프라팀·보안팀과 협업했습니다. 서버·AWS 리소스·rsync 환경 구축은 전담팀이 맡았으며, 저는 PHP 애플리케이션 코드 전반과 서비스 연동을 담당했습니다.",
     kind: "system",
     visualSteps: ["파일 검사", "미디어 처리", "DB 반영"],
     featured: true,
-    updatedAt: "2026-11-09",
+    updatedAt: "2026-11-10",
   },
   {
     id: "legacy-snap",

@@ -1,0 +1,81 @@
+.case-code-example {
+  padding: 24px;
+  margin-bottom: 28px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+}
+.case-code-example > h3 {
+  color: var(--primary);
+}
+.case-code-example dl {
+  margin: 20px 0 0;
+}
+.case-code-example dl > div {
+  display: grid;
+  grid-template-columns: 165px minmax(0, 1fr);
+  gap: 18px;
+  padding: 16px 0;
+  border-top: 1px solid var(--border);
+}
+.case-code-example dt {
+  font: 600 14px var(--font-sans);
+  line-height: 1.8;
+}
+.case-code-example dd {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.8;
+  word-break: keep-all;
+}
+.case-verification-table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  margin-top: 24px;
+  font-size: 15px;
+  line-height: 1.9;
+}
+.case-verification-table th,
+.case-verification-table td {
+  padding: 18px 16px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--border);
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+.case-verification-table thead th {
+  color: var(--primary);
+  background: var(--blue-wash);
+  font-weight: 600;
+}
+.case-verification-table th:first-child {
+  width: 43%;
+}
+.case-verification-table tbody th {
+  font-weight: 500;
+}
+.case-verification-table td {
+  color: var(--muted);
+}
+.case-body .upload-architecture {
+  margin-bottom: 28px;
+}
+@media (max-width: 640px) {
+  .case-code-example {
+    padding: 20px 16px;
+  }
+  .case-code-example dl > div {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+  .case-verification-table {
+    font-size: 14px;
+  }
+  .case-verification-table th,
+  .case-verification-table td {
+    padding: 14px 10px;
+  }
+}
