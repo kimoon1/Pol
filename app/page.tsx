@@ -1,17 +1,161 @@
-import Link from 'next/link';
-import { ArrowUpRight, ArrowRight, FolderKanban, Blocks, Layers, Code2, Database, Sparkles, Check, Braces } from 'lucide-react';
-import { Badge, MetricCard, SectionHeading } from '@/components/ui';
-import ProjectVisual from '@/components/project-visual';
-import { domains, profile, projects, implementedFeatures } from '@/lib/portfolio';
-export default function Dashboard() {
-  const icons = [Code2, Layers, Database, Sparkles];
-  const featured = projects[0];
-  return <>
-    <div className="dashboard-welcome"><div><span className="eyebrow">A LITTLE ABOUT WHAT I BUILD</span><p>안녕하세요, 풀스택 개발자 이기문입니다.</p></div><span className="edition-label">PORTFOLIO — 2026</span></div>
-    <section className="hero"><div className="hero-copy"><div className="hero-kicker"><span/>FULL-STACK DEVELOPER / LEE KIMOON</div><h1>기획부터 배포까지,<br/><span>서비스를 연결</span>합니다.</h1><p>화면과 API, AI와 인프라를 연결합니다.<br className="desktop-break"/> 웹·앱 서비스 설계부터 운영 개선까지 경험했습니다.</p><div className="hero-actions"><Link href="/projects/" className="button button-primary">프로젝트 살펴보기<ArrowUpRight size={17}/></Link><Link href="/about/" className="button button-ghost">저를 소개할게요<ArrowRight size={16}/></Link></div><div className="hero-tech"><span>MY BUILDING BLOCKS</span><b>Next.js</b><i/><b>NestJS</b><i/><b>FastAPI</b></div></div><div className="hero-art" aria-label="디자인에서 코드, 사용자 경험으로 이어지는 개발 과정"><div className="art-grid"/><div className="art-orbit orbit-one"/><div className="art-orbit orbit-two"/><div className="floating-tag"><span className="blue-dot"/>From idea to delivery.</div><div className="art-window"><div className="art-window-top"><div><i/><i/><i/></div><span>portfolio.ts</span><Code2 size={12}/></div><div className="art-code"><span>01 <em>const</em> developer = {'{'}</span><span>02&nbsp; web: <b>"Next.js"</b>,</span><span>03&nbsp; api: <b>"FastAPI"</b>,</span><span>04&nbsp; app: <b>"Flutter"</b></span><span>05 {'}'};</span></div><div className="art-preview"><div className="art-preview-icon"><Braces size={22}/></div><div><strong>Make it work.<br/>Make it meaningful.</strong><span>IDEA → CODE → EXPERIENCE</span></div><ArrowUpRight size={25}/></div></div><div className="art-check"><span><Check size={13}/></span>Web · App · AI</div><span className="art-coordinate">LEE KIMOON / DEVELOPER</span></div></section>
-    <section className="metrics-grid" aria-label="개발 경력 요약"><MetricCard icon={Layers} value={profile.experience} label="개발 경력" detail="풀스택 개발"/><MetricCard icon={FolderKanban} value={String(projects.length).padStart(2,'0')} label="프로젝트 경험" detail="설계·개발·개선"/><MetricCard icon={Blocks} value={String(implementedFeatures.length).padStart(2,'0')} label="구현 경험" detail="실무 기능 영역"/></section>
-    <div className="dashboard-columns"><section className="panel domain-panel"><SectionHeading title="어떤 개발을 할 수 있나요?" subtitle="화면 너머의 경험까지 생각합니다." href="/capabilities/" linkText="역량 보기"/><div className="domain-list">{domains.map((d,i)=>{const Icon=icons[i];return <div className="domain-item" key={d.name}><div className="domain-icon"><Icon size={20}/></div><div><h3>{d.name}</h3><p>{d.detail}</p><span>{d.tools}</span></div><ArrowUpRight size={16}/></div>;})}</div></section>
-    <section className="panel featured-panel"><SectionHeading title="Featured project" href="/projects/"/><Link href={`/projects/?project=${featured.id}`} className="featured-project-link"><ProjectVisual project={featured} large/><div className="featured-caption"><div><div className="project-meta"><Badge blue>{featured.category}</Badge><span>{featured.company} · {featured.period}</span></div><h3>{featured.name}<ArrowUpRight size={21}/></h3><p>LangGraph 챗봇·업무 데이터 연동·Slack 알림</p></div><div className="tech-tags">{featured.stack.slice(0,3).map(t=><Badge key={t}>{t}</Badge>)}</div></div></Link></section></div>
-    <section className="panel bottom-feature-panel"><div><span className="eyebrow">WEB, MOBILE, AI & INFRASTRUCTURE.</span><h2>어떤 기능을 구현해 왔을까요?</h2><p>AI 챗봇부터 인증·결제, 파일 전달 구조까지. 실무 구현 경험을 만나보세요.</p></div><Link href="/capabilities/" className="button button-secondary">구현 경험 보기<ArrowUpRight size={17}/></Link><div className="feature-decoration" aria-hidden="true"><Blocks size={68}/></div></section>
-  </>;
+import Link from "next/link";
+import {
+  ArrowUpRight,
+  ArrowRight,
+  Code2,
+  Layers,
+  ShieldCheck,
+} from "lucide-react";
+import {
+  profile,
+  featuredProjects,
+  orderedProjects,
+  careers,
+  projectHref,
+} from "@/lib/portfolio";
+import { SectionHeading } from "@/components/ui";
+import ProjectCard from "@/components/project-card";
+
+export default function HomePage() {
+  const frontendProjects = orderedProjects.filter((project) =>
+    ["legacy-snap", "commerce"].includes(project.id),
+  );
+  return (
+    <>
+      <div className="dashboard-welcome">
+        <div>
+          <span className="eyebrow">LEE KIMOON / SELECTED WORK</span>
+          <p>안녕하세요, 프론트엔드 개발자 이기문입니다.</p>
+        </div>
+        <span className="edition-label">PORTFOLIO — 2026</span>
+      </div>
+      <section className="portfolio-hero">
+        <div className="portfolio-hero-copy">
+          <span className="eyebrow">FRONTEND DEVELOPER</span>
+          <h1>
+            업무의 복잡함을,
+            <br />
+            <span>사용하기 쉬운 화면으로.</span>
+          </h1>
+          <p>{profile.summary}</p>
+          <div className="hero-tech">
+            <b>React</b>
+            <i />
+            <b>Next.js</b>
+            <i />
+            <b>TypeScript</b>
+          </div>
+          <div className="hero-actions">
+            <a href="#selected-work" className="button button-primary">
+              대표 프로젝트 보기
+              <ArrowRight size={17} />
+            </a>
+            <Link href="/resume/" className="button button-secondary">
+              경력 요약
+              <ArrowUpRight size={17} />
+            </Link>
+          </div>
+        </div>
+        <aside className="hero-focus" aria-label="개발 경험 요약">
+          <div className="hero-focus-heading">
+            <Code2 size={23} />
+            <span>
+              FRONTEND
+              <br />
+              <strong>+ SERVICE CONTEXT</strong>
+            </span>
+          </div>
+          <div>
+            <span>주력 분야</span>
+            <strong>화면 · 사용자 흐름 · API 연동</strong>
+          </div>
+          <div>
+            <span>총 개발 경력</span>
+            <strong>
+              {profile.experience}
+              <small>SI → 서비스 회사</small>
+            </strong>
+          </div>
+          <div>
+            <span>백엔드 경험</span>
+            <strong>
+              NestJS · FastAPI
+              <small>총 경력 내 {profile.backendExperience}</small>
+            </strong>
+          </div>
+        </aside>
+      </section>
+      <section id="selected-work" className="selected-work">
+        <SectionHeading
+          title="대표 프로젝트"
+          subtitle="화면과 데이터, 권한과 운영을 연결한 실무 경험입니다."
+          href="/projects/"
+          linkText="전체 프로젝트"
+        />
+        <div className="featured-grid">
+          {featuredProjects.map((project) => (
+            <ProjectCard key={project.id} project={project} heading="h3" />
+          ))}
+        </div>
+      </section>
+      <section className="frontend-work">
+        <SectionHeading
+          title="React로 쌓아 온 경험"
+          subtitle="운영 중인 서비스의 전환과 인증·결제 흐름 구현."
+        />
+        <div className="frontend-project-list">
+          {frontendProjects.map((project, index) => (
+            <Link href={projectHref(project.id)} key={project.id}>
+              <span className="project-list-number">0{index + 1}</span>
+              <div>
+                <h3>{project.name}</h3>
+                <p>{project.subtitle}</p>
+                <span>{project.role}</span>
+              </div>
+              <ArrowUpRight size={23} />
+            </Link>
+          ))}
+        </div>
+      </section>
+      <section className="home-career panel">
+        <SectionHeading
+          title="설계하고, 구현하고, 개선해 왔습니다."
+          href="/about/"
+          linkText="소개 · 경력"
+        />
+        <div className="home-career-grid">
+          {careers.map((career, index) => (
+            <div key={career.company}>
+              {index === 0 ? <ShieldCheck size={23} /> : <Layers size={23} />}
+              <span>{career.period}</span>
+              <h3>{career.company}</h3>
+              <p>{career.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+      <section className="contact-panel">
+        <div>
+          <span className="eyebrow">LET’S BUILD TOGETHER</span>
+          <h2>더 자세한 경험이 궁금하다면</h2>
+          <p>경력 요약과 프로젝트별 담당 범위를 확인하세요.</p>
+        </div>
+        <div className="contact-actions">
+          <Link href="/resume/" className="button button-primary">
+            경력 요약 보기
+            <ArrowUpRight size={16} />
+          </Link>
+          <a
+            href={profile.github}
+            target="_blank"
+            rel="noreferrer"
+            className="button button-secondary"
+          >
+            GitHub
+            <ArrowUpRight size={16} />
+          </a>
+        </div>
+      </section>
+    </>
+  );
 }

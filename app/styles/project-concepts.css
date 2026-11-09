@@ -1,0 +1,535 @@
+/* Resume-backed project concepts and experience sections; uses the existing five tokens. */
+.case-visual {
+  position: relative;
+  background: var(--blue-wash);
+  isolation: isolate;
+  padding: 18px 24px 27px;
+}
+.case-grid {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    linear-gradient(rgb(41 98 255 / 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(41 98 255 / 0.04) 1px, transparent 1px);
+  background-size: 23px 23px;
+}
+.case-frame {
+  width: 86%;
+  max-width: 400px;
+  border: 1px solid rgb(41 98 255 / 0.12);
+  border-radius: 10px;
+  background: var(--surface);
+  box-shadow: 0 9px 24px rgb(41 98 255 / 0.08);
+  padding: 13px 17px;
+  transform: rotate(-2deg);
+}
+.case-frame-top {
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted);
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+.case-frame-top > span {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.case-frame-top > svg {
+  opacity: 0.45;
+}
+.case-title {
+  position: relative;
+  padding-right: 27px;
+  margin: 12px 0;
+}
+.case-title > span {
+  display: block;
+  color: var(--muted);
+  font-size: 13px;
+}
+.case-title > strong {
+  display: block;
+  font-size: 16px;
+  line-height: 1.5;
+  margin-top: 4px;
+  letter-spacing: -0.6px;
+}
+.case-title > svg {
+  position: absolute;
+  right: 0;
+  bottom: 2px;
+  color: var(--primary);
+}
+.case-flow {
+  display: flex;
+  gap: 6px;
+}
+.case-step-wrap {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.case-step-wrap > svg {
+  transform: rotate(-90deg);
+  flex-shrink: 0;
+  color: var(--muted);
+  width: 9px;
+}
+.case-step {
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 8px 6px;
+  min-height: 48px;
+  position: relative;
+  background: var(--canvas);
+  flex: 1;
+  min-width: 0;
+}
+.case-step > span {
+  font-size: 13px;
+  color: var(--primary);
+  letter-spacing: 0.5px;
+}
+.case-step > strong {
+  display: block;
+  font-size: 13px;
+  line-height: 1.7;
+  font-weight: 500;
+  margin-top: 4px;
+  word-break: keep-all;
+}
+.case-step > svg {
+  position: absolute;
+  right: 5px;
+  top: 7px;
+  color: var(--primary);
+  width: 9px;
+}
+.case-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--muted);
+  letter-spacing: 0;
+  margin-top: 10px;
+}
+.case-visual-note {
+  position: absolute;
+  bottom: 7px;
+  font-size: 13px;
+  color: var(--muted);
+  letter-spacing: 0;
+  text-align: center;
+  left: 10px;
+  right: 10px;
+}
+.case-mobile .case-frame {
+  max-width: 290px;
+  transform: rotate(3deg);
+}
+.case-mobile .case-frame-top {
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 9px;
+}
+.case-commerce {
+  background: rgb(33 33 33 / 0.035);
+}
+.case-commerce .case-frame {
+  transform: rotate(2deg);
+}
+.project-dialog .case-visual {
+  height: 265px;
+}
+.project-dialog .case-frame {
+  max-width: 420px;
+}
+.project-dialog .case-title > strong {
+  font-size: 19px;
+}
+.project-dialog .case-step > strong {
+  font-size: 13px;
+}
+.project-dialog .case-step {
+  padding: 10px;
+  min-height: 60px;
+}
+.project-dialog .case-tech {
+  font-size: 13px;
+}
+.project-card h2 {
+  line-height: 1.45;
+}
+.project-card h2 > svg {
+  flex-shrink: 0;
+}
+.project-card-bottom {
+  gap: 10px;
+  line-height: 1.7;
+}
+.project-card-bottom > span:last-child {
+  white-space: nowrap;
+}
+.filter-tabs {
+  flex-wrap: wrap;
+}
+.explorer-toolbar {
+  align-items: flex-start;
+}
+.search-field {
+  flex-shrink: 0;
+}
+.project-external {
+  margin-top: 20px;
+}
+.implemented-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 32px;
+}
+.implemented-card {
+  display: flex;
+  flex-direction: column;
+}
+.implemented-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.implemented-card-top .eyebrow {
+  font-size: 13px;
+  color: var(--primary);
+  letter-spacing: 1.3px;
+}
+.implemented-card-top > span:last-child {
+  font-size: 13px;
+  color: var(--muted);
+}
+.implemented-card h2 {
+  font-size: 19px;
+  line-height: 1.6;
+  letter-spacing: -0.6px;
+  margin-top: 18px;
+}
+.implemented-card > p {
+  font-size: 13px;
+  line-height: 1.95;
+  color: var(--muted);
+  margin-top: 10px;
+  flex: 1;
+}
+.implemented-card > .text-link {
+  margin-top: 21px;
+  align-self: flex-start;
+}
+.implemented-card .tech-tags .badge {
+  font-size: 13px;
+}
+.career-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 13px;
+}
+.career-links a {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  font-size: 13px;
+  padding: 5px 7px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--muted);
+}
+.career-links a:hover {
+  color: var(--primary);
+  border-color: rgb(41 98 255 / 0.3);
+}
+.education-item {
+  display: flex;
+  gap: 12px;
+  padding: 19px 0;
+  border-bottom: 1px solid var(--border);
+}
+.education-item:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+.education-item > svg {
+  flex-shrink: 0;
+  color: var(--muted);
+  margin-top: 2px;
+}
+.education-item h3 {
+  font-size: 13px;
+  line-height: 1.6;
+}
+.education-item span {
+  font-size: 13px;
+  color: var(--muted);
+  display: block;
+  margin-top: 6px;
+  letter-spacing: 0;
+}
+.education-item p {
+  font-size: 13px;
+  line-height: 1.85;
+  color: var(--muted);
+  margin-top: 8px;
+}
+.skills-panel {
+  margin-top: 24px;
+}
+.skill-group {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 15px 0;
+  border-top: 1px solid var(--border);
+}
+.skill-group > span {
+  font-size: 13px;
+  letter-spacing: 1px;
+  width: 145px;
+  flex-shrink: 0;
+  color: var(--muted);
+  padding-top: 7px;
+}
+.skill-group > div {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+.skill-group .badge {
+  font-size: 13px;
+  padding: 7px 9px;
+}
+.ai-list {
+  margin: 0;
+  padding-left: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.9;
+}
+.ai-list li::marker {
+  color: var(--primary);
+}
+.external-work-links {
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 25px;
+  padding-top: 22px;
+}
+.external-work-links a {
+  white-space: normal;
+  line-height: 1.7;
+}
+.external-work-links a > svg {
+  flex-shrink: 0;
+}
+.timeline-placeholder:before {
+  bottom: -30px;
+}
+.timeline-placeholder:last-child:before {
+  display: none;
+}
+.hero-tech > span {
+  white-space: nowrap;
+}
+@media (max-width: 1200px) {
+  .explorer-toolbar {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .search-field {
+    width: 100%;
+  }
+  .search-field input {
+    width: 100%;
+  }
+  .case-frame {
+    width: 93%;
+    padding: 12px 14px;
+  }
+  .case-step > strong {
+    font-size: 13px;
+  }
+  .case-title > strong {
+    font-size: 15px;
+  }
+  .implemented-card h2 {
+    font-size: 17px;
+  }
+  .implemented-card > p {
+    font-size: 13px;
+  }
+  .skill-group > span {
+    width: 120px;
+  }
+}
+@media (max-width: 800px) {
+  .implemented-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  .implemented-card h2 {
+    font-size: 19px;
+  }
+  .implemented-card > p {
+    font-size: 13px;
+  }
+  .case-frame {
+    max-width: 370px;
+    width: 92%;
+  }
+  .case-step > strong {
+    font-size: 13px;
+  }
+  .case-title > strong {
+    font-size: 17px;
+  }
+  .case-step {
+    padding: 8px;
+  }
+  .case-tech {
+    font-size: 13px;
+  }
+  .featured-panel .case-visual {
+    height: 235px;
+  }
+  .skill-group {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .skill-group > span {
+    width: auto;
+    font-size: 13px;
+  }
+  .skill-group .badge {
+    font-size: 13px;
+  }
+  .project-card h2 {
+    font-size: 21px;
+  }
+  .education-item h3 {
+    font-size: 13px;
+  }
+  .timeline-placeholder > div {
+    min-width: 0;
+  }
+}
+@media (max-width: 640px) {
+  .hero h1 {
+    font-size: clamp(28px, 8vw, 38px);
+    letter-spacing: -1.8px;
+  }
+  .hero-copy {
+    padding: 28px 22px;
+  }
+  .hero-copy > p {
+    font-size: 13px;
+  }
+  .hero-tech {
+    flex-wrap: wrap;
+    row-gap: 9px;
+  }
+  .hero-tech > span {
+    font-size: 13px;
+  }
+  .case-visual {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .case-frame {
+    padding: 12px 14px;
+  }
+  .case-title > strong {
+    font-size: 16px;
+  }
+  .case-flow {
+    gap: 4px;
+  }
+  .case-step-wrap {
+    gap: 4px;
+  }
+  .case-step > strong {
+    font-size: 13px;
+  }
+  .case-step {
+    padding: 7px 5px;
+  }
+  .case-step > svg {
+    display: none;
+  }
+  .case-tech {
+    font-size: 13px;
+    gap: 9px;
+  }
+  .case-visual-note {
+    font-size: 13px;
+  }
+  .project-card h2 {
+    font-size: 21px;
+  }
+  .project-card-bottom {
+    font-size: 13px;
+  }
+  .filter-tabs button {
+    padding: 9px 10px;
+    font-size: 13px;
+  }
+  .implemented-card-top .eyebrow {
+    font-size: 13px;
+  }
+  .implemented-card h2 {
+    font-size: 19px;
+  }
+  .implemented-card > p {
+    font-size: 13px;
+  }
+  .skill-group .badge {
+    font-size: 13px;
+  }
+  .timeline-title h3 {
+    font-size: 13px;
+  }
+  .career-links a {
+    font-size: 13px;
+  }
+  .education-item h3 {
+    font-size: 13px;
+  }
+  .education-item p {
+    font-size: 13px;
+  }
+  .ai-list {
+    font-size: 13px;
+  }
+  .external-work-links .text-link {
+    font-size: 13px;
+  }
+}
+.domain-item > div:nth-child(2) {
+  min-width: 0;
+}
+.domain-item p {
+  line-height: 1.7;
+}
+.domain-item > div > span {
+  line-height: 1.7;
+}
+.hero h1 {
+  white-space: normal;
+  word-break: keep-all;
+}

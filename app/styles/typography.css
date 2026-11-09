@@ -1,0 +1,170 @@
+/* Self-hosted typography: Korean UI, geometric Latin accents, developer mono. */
+:root {
+  --font-sans:
+    "Pretendard Variable", "Pretendard", -apple-system, BlinkMacSystemFont,
+    sans-serif;
+  --font-display: "Space Grotesk Variable", "Pretendard Variable", sans-serif;
+  --font-mono: "JetBrains Mono Variable", "Pretendard Variable", monospace;
+}
+html {
+  text-rendering: optimizeLegibility;
+}
+body {
+  font-family: var(--font-sans);
+  font-weight: 450;
+  letter-spacing: -0.015em;
+  font-synthesis: none;
+}
+button,
+input,
+select {
+  font-family: inherit;
+}
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  text-wrap: balance;
+}
+.hero h1 {
+  font-weight: 740;
+  letter-spacing: -0.045em;
+  line-height: 1.32;
+}
+.page-heading h1,
+.about-intro-content h2 {
+  font-weight: 720;
+  letter-spacing: -0.04em;
+}
+.section-heading h2,
+.project-card h2,
+.implemented-card h2,
+.featured-caption h3,
+.contact-panel h2,
+.bottom-feature-panel h2 {
+  font-weight: 650;
+  letter-spacing: -0.035em;
+}
+.brand {
+  font-family: var(--font-display);
+  font-size: 35px;
+  font-weight: 700;
+  letter-spacing: -0.075em;
+}
+.brand-caption {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+.eyebrow,
+.edition-label,
+.hero-kicker,
+.nav-caption,
+.tiny-label,
+.preview-label,
+.hero-tech,
+.case-frame-top,
+.case-tech,
+.art-check,
+.floating-tag,
+.topbar-avatar {
+  font-family: var(--font-display);
+}
+.eyebrow,
+.hero-kicker,
+.edition-label,
+.nav-caption,
+.tiny-label {
+  font-weight: 600;
+  letter-spacing: 0.07em;
+}
+.nav-item,
+.button,
+.sidebar-profile strong {
+  font-weight: 550;
+}
+.nav-item.active {
+  font-weight: 650;
+}
+.metric-value,
+.page-index,
+.process-steps > div > span,
+.implemented-card-top > span:last-child,
+.case-step > span {
+  font-family: var(--font-display);
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  letter-spacing: -0.045em;
+}
+.metric-value > span {
+  font-family: var(--font-sans);
+  font-weight: 450;
+  letter-spacing: -0.015em;
+}
+.badge,
+.tech-tags .badge,
+.skill-group .badge {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+.art-window-top,
+.art-code,
+code,
+pre {
+  font-family: var(--font-mono);
+  font-weight: 450;
+  font-variant-ligatures: contextual common-ligatures;
+  letter-spacing: -0.025em;
+}
+.art-code {
+  font-size: 14px;
+  line-height: 2.05;
+}
+.art-code b {
+  font-weight: 500;
+}
+.art-window-top {
+  letter-spacing: -0.03em;
+}
+.art-preview strong {
+  font-family: var(--font-display);
+  font-size: clamp(21px, 1.7vw, 26px);
+  font-weight: 650;
+  line-height: 1.18;
+  letter-spacing: -0.045em;
+}
+.art-preview div > span,
+.art-coordinate {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: 0.035em;
+}
+.art-preview div > span {
+  color: rgb(255 255 255 / 0.72);
+}
+.art-coordinate {
+  letter-spacing: 0.055em;
+}
+.case-title > strong {
+  font-family: var(--font-display);
+  font-weight: 650;
+  letter-spacing: -0.035em;
+}
+.dialog-info strong,
+.education-item span,
+.timeline-placeholder p {
+  font-variant-numeric: tabular-nums;
+}
+@media (max-width: 640px) {
+  .hero h1 {
+    letter-spacing: -0.045em;
+  }
+  .hero-kicker {
+    letter-spacing: 0.035em;
+  }
+  .art-preview strong {
+    font-size: 22px;
+  }
+}
