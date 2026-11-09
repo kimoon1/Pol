@@ -5,6 +5,7 @@ import {
   Code2,
   Database,
 } from "lucide-react";
+import UploadArchitecture from "./upload-architecture";
 
 export default function CaseDiagram({ id }: { id: string }) {
   if (id === "erp-ai")
@@ -34,31 +35,12 @@ export default function CaseDiagram({ id }: { id: string }) {
         </div>
         <p className="diagram-boundary">
           <ShieldCheck size={18} aria-hidden="true" />
-          노드 기능 사용 시 사용자별 권한 검사 · 조회 병행 설계 · 벡터 검색 미사용
+          노드 기능 사용 시 사용자별 권한 검사 · 조회 병행 설계 · 벡터 검색
+          미사용
         </p>
       </figure>
     );
-  if (id === "upload-server")
-    return (
-      <figure className="case-diagram panel">
-        <figcaption>
-          구조 변경 요약<span>보안 · 책임 분리 · 리소스 분산</span>
-        </figcaption>
-        <div className="comparison-grid">
-          <div>
-            <span className="eyebrow">BEFORE</span>
-            <h3>단일 업로드 서버</h3>
-            <p>보안과 리소스 문제가 한 서버에 집중</p>
-          </div>
-          <div>
-            <span className="eyebrow">AFTER</span>
-            <h3>검증 · 퍼블릭 서버 분리</h3>
-            <p>검증과 공개 제공의 책임 분리</p>
-            <p>rsync 기반 이중화 · SQS 큐 추가</p>
-          </div>
-        </div>
-      </figure>
-    );
+  if (id === "upload-server") return <UploadArchitecture />;
   if (id === "ai-ad-generator")
     return (
       <figure className="case-diagram panel">

@@ -78,6 +78,25 @@ export default async function ProjectPage({ params }: Props) {
         <h2>{study?.focus ?? project.subtitle}</h2>
         <p>{project.description}</p>
       </section>
+      {(project.environment || project.collaboration) && (
+        <section
+          className="case-context panel"
+          aria-label="운영 환경과 협업 범위"
+        >
+          {project.environment && (
+            <div>
+              <h2>운영 환경</h2>
+              <p>{project.environment}</p>
+            </div>
+          )}
+          {project.collaboration && (
+            <div>
+              <h2>협업과 담당 범위</h2>
+              <p>{project.collaboration}</p>
+            </div>
+          )}
+        </section>
+      )}
       <CaseDiagram id={slug} />
       {inProgress ? (
         <section className="case-overview panel progress-summary">
