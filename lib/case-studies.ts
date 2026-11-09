@@ -19,24 +19,24 @@ export const caseStudies: Record<string, CaseStudy> = {
       {
         title: "Python · LangGraph",
         description:
-          "Python과 LangGraph로 챗봇을 구축하고 조직·정책 조회 기능을 연결했습니다.",
+          "Python·LangGraph로 슈퍼바이저 형태의 노드를 구성하고 조직·정책 조회 기능을 연결했습니다.",
       },
       {
-        title: "user_pk 기반 권한 검사",
+        title: "사용자별 노드 기능 권한 검사",
         description:
-          "LangGraph 내 사용자 권한 검사 툴에서 user_pk를 기준으로 권한을 확인하도록 구현했습니다.",
+          "사용자가 LangGraph의 각 노드 기능을 사용할 때 해당 기능에 대한 권한을 검사하도록 구현했습니다.",
       },
     ],
     decisions: [
       {
-        title: "노드별 조회 병행 설계",
+        title: "슈퍼바이저 기반 노드 구성",
         description:
-          "LangGraph에서 노드별 조회를 병행하도록 설계했습니다. 챗봇 화면과 함께 사내 조직·정책 조회 기능을 구성했습니다.",
+          "LangGraph 노드를 슈퍼바이저 형태로 구성하고, 노드별 조회를 병행하도록 설계했습니다.",
       },
       {
-        title: "LangGraph 내부 권한 검사 툴",
+        title: "노드 기능 사용 시 권한 검사",
         description:
-          "LangGraph 안에서 사용할 수 있는 권한 검사 툴을 두고, 사용자 식별자인 user_pk로 사용자 권한을 확인합니다.",
+          "사용자마다 LangGraph 노드의 기능 사용 권한을 확인해 허용된 기능을 이용하도록 구성했습니다.",
       },
       {
         title: "벡터 검색 없이 구성",
@@ -45,7 +45,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       },
     ],
     scope:
-      "담당 범위: 챗봇 프론트엔드, Python·LangGraph 구현, 권한에 따른 조직·정책 조회. 업무 규칙 기반 Slack 알림도 개발했습니다.",
+      "담당 범위: 챗봇 프론트엔드, Python·LangGraph의 슈퍼바이저 노드 구성, 사용자별 노드 기능 권한 검사와 조직·정책 조회. 업무 규칙 기반 Slack 알림도 개발했습니다.",
     related: ["commerce", "education"],
   },
   "upload-server": {
