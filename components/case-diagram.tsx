@@ -30,12 +30,12 @@ export default function CaseDiagram({ id }: { id: string }) {
           <div>
             <Database aria-hidden="true" />
             <strong>노드별 기능</strong>
-            <span>조직·정책 조회 · 권한 검사</span>
+            <span>조회 툴·API의 권한 검사</span>
           </div>
         </div>
         <p className="diagram-boundary">
           <ShieldCheck size={18} aria-hidden="true" />
-          노드 기능 사용 시 사용자별 권한 검사 · 노드별 조회 병행 설계
+          사용자 부서·직책 전달 · 조회 툴·API 코드에서 접근 차단 · 노드별 조회 병행 설계
         </p>
       </figure>
     );
