@@ -60,7 +60,7 @@ for (const file of details) {
 assert.ok(
   fs
     .readFileSync(resolveRoute("/projects/erp-ai/"), "utf8")
-    .includes("벡터 검색 미사용"),
+    .includes("벡터 검색은 사용하지 않았습니다"),
 );
 assert.ok(
   fs
