@@ -59,12 +59,12 @@ function MigrationConcept() {
         <div>
           <Code2 size={20} />
           <strong>React</strong>
-          <span>UI</span>
+          <span>화면·API 통신</span>
         </div>
         <div>
           <Database size={20} />
-          <strong>Node.js</strong>
-          <span>API</span>
+          <strong>PHP</strong>
+          <span>백엔드 유지</span>
         </div>
       </div>
       <span className="migration-check">

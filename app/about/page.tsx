@@ -76,7 +76,7 @@ export default function AboutPage() {
             {
               icon: Code2,
               title: "운영 중인 서비스를 개선합니다.",
-              text: "PHP 레거시를 React·Node.js로 전환하고, 인프라·보안팀과 협업해 PHP 업로드 코드를 리팩토링하고 SQS를 연동했습니다.",
+              text: "스냅컴퍼니에서는 PHP 백엔드를 유지하며 React 화면을 구현했습니다. 봄바람에서는 PHP 코드를 React·Node.js로 전환했습니다. 업로드 코드 리팩토링과 SQS 연동에서는 인프라·보안팀과 협업했습니다.",
             },
           ].map(({ icon: Icon, title, text }, index) => (
             <article className="principle-card" key={title}>

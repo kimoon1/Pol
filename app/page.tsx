@@ -74,7 +74,7 @@ export default function HomePage() {
             {
               id: "legacy-snap",
               label: "운영을 유지하는 전환",
-              detail: "PHP → React · Node.js",
+              detail: "PHP 유지 · React 화면 전환",
             },
             {
               id: "commerce",

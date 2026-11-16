@@ -171,7 +171,7 @@ export const caseStudies: Record<string, CaseStudy> = {
     related: ["erp-ai", "commerce"],
   },
   "legacy-snap": {
-    focus: "결제·쇼핑몰·게시판을 운영하며 바꾼 화면과 API",
+    focus: "PHP 백엔드를 유지하며 화면·API 통신의 책임 분리",
     responsibilities: [
       {
         title: "React UI 전환",
@@ -184,12 +184,17 @@ export const caseStudies: Record<string, CaseStudy> = {
           "서비스 운영을 유지하면서 기존 기능을 검증하고 기능 단위로 전환했습니다.",
       },
       {
-        title: "Node.js API 연결",
+        title: "PHP API와 연결하는 React 통신 로직",
         description:
-          "화면 전환과 함께 Node.js API 기반으로 기능을 재구성했습니다.",
+          "PHP 백엔드를 유지하고, 프론트엔드 기능과 기존 API에 연결하는 통신 로직을 React로 구현했습니다.",
       },
     ],
     decisions: [
+      {
+        title: "팀 역할 분리에 맞춘 코드 책임 구분",
+        description:
+          "PHP 개발팀을 PHP 백엔드와 React 프론트엔드로 나누는 방향에 맞춰 화면과 API 통신 로직을 React로 전환했습니다. 프론트엔드와 백엔드 코드의 책임을 구분하고 개발 속도를 개선하는 것이 전환의 목적이었습니다.",
+      },
       {
         title: "운영을 이어가는 기능 단위 전환",
         description:

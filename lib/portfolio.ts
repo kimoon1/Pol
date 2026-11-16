@@ -146,28 +146,30 @@ export const projects: Project[] = [
     id: "legacy-snap",
     number: "04",
     name: "PHP 레거시 React 전환",
-    subtitle: "서비스 운영을 유지하며 단계적으로 구조 전환",
+    subtitle: "PHP 백엔드를 유지하며 React 프론트엔드 분리",
     category: "Web",
     description:
-      "결제·쇼핑몰·게시판 기능을 React UI와 Node.js API 구조로 단계적으로 재구성했습니다.",
-    stack: ["PHP", "React", "Node.js"],
+      "PHP 백엔드를 유지하고 결제·쇼핑몰·게시판의 화면과 API 통신 로직을 React로 전환했습니다. 팀의 역할 분리에 맞춰 프론트엔드와 백엔드 코드의 책임을 구분한 작업입니다.",
+    stack: ["PHP", "React"],
     features: [
-      "React UI와 Node.js API 구조로 기능 전환",
+      "PHP 백엔드 유지·React 화면과 API 통신 로직 구현",
+      "프론트엔드와 백엔드 코드의 책임 분리",
       "결제·쇼핑몰·게시판 기존 기능 검증",
       "운영을 유지하며 단계적으로 리팩토링",
     ],
     challenge:
-      "기존 서비스 기능과 운영을 유지하면서 PHP 레거시 구조를 전환해야 했습니다.",
+      "PHP 개발팀으로 운영하던 조직을 PHP 백엔드와 React 프론트엔드로 나누는 방향에 맞춰, 코드의 책임도 분리해야 했습니다. 프론트엔드와 백엔드의 역할을 구분하고 개발 속도를 개선하는 것이 전환의 목적이었습니다. 기존 서비스 기능과 운영을 유지하며 전환해야 했습니다.",
     solution:
-      "기존 기능을 검증하며 React·Node.js 기반으로 기능 단위 전환을 구현했습니다.",
+      "PHP 백엔드를 유지한 상태에서 프론트엔드 기능과 API 통신 로직을 React로 구현했습니다. 기존 기능을 검증하며 기능 단위로 화면을 전환하고, 백엔드와 프론트엔드 코드의 책임을 분리했습니다.",
     result:
-      "운영 중인 결제·쇼핑몰·게시판 기능을 검증하며 React UI와 Node.js API 구조로 단계적으로 전환했습니다.",
+      "PHP 백엔드를 유지하면서 운영 중인 결제·쇼핑몰·게시판의 화면과 API 통신 로직을 React로 전환했습니다. 백엔드와 프론트엔드의 코드 책임을 구분했습니다.",
     period: "2025.03 — 2025.05",
     company: "(주)스냅컴퍼니",
-    role: "프론트 팀원 · React·Node.js 전환 구현",
+    role: "프론트 팀원 · React 화면·API 통신 구현",
     kind: "system",
-    visualSteps: ["기존 기능 검증", "React UI", "Node.js API"],
+    visualSteps: ["기존 기능 검증", "React 화면·API 통신", "PHP 백엔드 유지"],
     featured: true,
+    updatedAt: "2026-11-16",
   },
   {
     id: "msa",
@@ -426,8 +428,8 @@ export const implementedFeatures = [
     title: "레거시 전환·기능 분리",
     category: "REFACTORING",
     description:
-      "PHP의 결제·쇼핑몰·게시판 기능을 React UI와 Node.js API로 전환하며 공통 로직과 책임을 분리했습니다.",
-    tags: ["PHP", "React", "Node.js"],
+      "PHP 백엔드를 유지하면서 결제·쇼핑몰·게시판의 화면과 API 통신 로직을 React로 전환하고 프론트엔드와 백엔드의 책임을 분리했습니다.",
+    tags: ["PHP", "React"],
     project: "legacy-snap",
   },
   {

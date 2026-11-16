@@ -74,7 +74,7 @@ export default function CaseDiagram({ id }: { id: string }) {
     return (
       <figure className="case-diagram panel">
         <figcaption>
-          화면과 API의 전환 범위<span>운영 유지 · 기능 단위 전환</span>
+          프론트엔드 전환 범위<span>PHP 백엔드 유지 · React 화면 전환</span>
         </figcaption>
         <div className="comparison-grid">
           <div>
@@ -84,8 +84,8 @@ export default function CaseDiagram({ id }: { id: string }) {
           </div>
           <div>
             <span className="eyebrow">AFTER</span>
-            <h3>React UI + Node.js API</h3>
-            <p>화면과 API 구조로 기능을 단계적으로 전환</p>
+            <h3>React 화면 + PHP 백엔드</h3>
+            <p>화면·API 통신은 React로 전환하고 PHP 백엔드는 유지</p>
           </div>
         </div>
         <p className="diagram-boundary">
