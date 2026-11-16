@@ -52,6 +52,7 @@ export const projects: Project[] = [
     stack: ["Next.js", "Python", "FastAPI", "LangGraph"],
     features: [
       "ERP 챗봇 프론트엔드 개발",
+      "응답 첫 글자 수신 전 로딩 인디케이터 표시·스트리밍 채팅 출력",
       "조회 실패 시 채팅창 안에서 대화형 안내 제공",
       "Python·LangGraph 기반 챗봇 구축",
       "사내 조직 및 정책 조회",
