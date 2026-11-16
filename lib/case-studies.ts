@@ -25,7 +25,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       {
         title: "프론트엔드 · ERP 챗봇 화면",
         description:
-          "ERP에서 조직과 정책에 대한 질문을 입력하고 조회하는 챗봇 화면을 Next.js로 개발했습니다.",
+          "ERP에서 조직과 정책에 대한 질문을 입력하고 조회하는 챗봇 화면을 Next.js로 개발했습니다. 조회 실패 시에도 채팅창 안에서 대화형 안내를 제공하도록 구현했습니다.",
       },
       {
         title: "백엔드 · 조회 흐름 분리와 응답 속도 개선",

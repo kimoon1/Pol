@@ -52,6 +52,7 @@ export const projects: Project[] = [
     stack: ["Next.js", "Python", "FastAPI", "LangGraph"],
     features: [
       "ERP 챗봇 프론트엔드 개발",
+      "조회 실패 시 채팅창 안에서 대화형 안내 제공",
       "Python·LangGraph 기반 챗봇 구축",
       "사내 조직 및 정책 조회",
       "슈퍼바이저 형태의 LangGraph 노드 구성",
@@ -75,7 +76,7 @@ export const projects: Project[] = [
     kind: "workspace",
     visualSteps: ["ERP 화면", "LangGraph", "조직·정책 조회"],
     featured: true,
-    updatedAt: "2026-11-15",
+    updatedAt: "2026-11-16",
   },
   {
     id: "s3-transfer",
