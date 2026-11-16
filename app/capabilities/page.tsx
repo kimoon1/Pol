@@ -9,7 +9,7 @@ export const metadata: Metadata = { title: "기술별 경험" };
 const areas = [
   {
     title: "화면과 사용자 흐름",
-    description: "챗봇, 인증·결제와 콘텐츠 관리, 운영 중인 React 전환 사례입니다.",
+    description: "챗봇·인증·결제·콘텐츠 관리와 React 프론트엔드 초기 구축 사례입니다.",
     tags: ["React", "Next.js", "OAuth", "PG 결제"],
     projects: ["erp-ai", "legacy-snap", "commerce", "education"],
   },

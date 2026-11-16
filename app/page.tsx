@@ -73,8 +73,8 @@ export default function HomePage() {
             },
             {
               id: "legacy-snap",
-              label: "운영을 유지하는 전환",
-              detail: "PHP 유지 · React 화면 전환",
+              label: "React 초기 구조 설계",
+              detail: "신규 화면 · PHP API 연동",
             },
             {
               id: "commerce",
@@ -110,7 +110,7 @@ export default function HomePage() {
           </div>
           <div>
             <p>
-              챗봇 화면부터 운영 중인 서비스 전환까지.
+              챗봇 화면부터 프론트엔드 초기 구조 설계까지.
               <br />
               맡은 역할과 구현 과정을 정리했습니다.
             </p>

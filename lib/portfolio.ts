@@ -13,7 +13,7 @@ export const profile = {
   introduction:
     "React·Next.js·TypeScript로 업무에 필요한 화면을 만드는 프론트엔드 개발자 이기문입니다.",
   summary:
-    "React·Next.js·TypeScript로 ERP 챗봇과 쇼핑몰의 사용자 흐름을 만들고, 운영 중인 PHP 화면을 React로 전환해 왔습니다. 백엔드 개발 경험을 바탕으로 화면과 API, 권한을 함께 고려합니다.",
+    "React·Next.js·TypeScript로 ERP 챗봇과 쇼핑몰의 사용자 흐름을 만들고, React 프론트엔드 초기 코드 구조를 설계했습니다. 백엔드 개발 경험을 바탕으로 화면과 API, 권한을 함께 고려합니다.",
 };
 export type Category = "Web" | "Platform" | "Mobile" | "Infrastructure";
 export type Project = {
@@ -145,29 +145,28 @@ export const projects: Project[] = [
   {
     id: "legacy-snap",
     number: "04",
-    name: "PHP 레거시 React 전환",
-    subtitle: "PHP 백엔드를 유지하며 React 프론트엔드 분리",
+    name: "React 프론트엔드 초기 구축",
+    subtitle: "초기 코드 구조 설계·신규 화면·PHP API 연동",
     category: "Web",
     description:
-      "PHP 백엔드를 유지하고 결제·쇼핑몰·게시판의 화면과 API 통신 로직을 React로 전환했습니다. 팀의 역할 분리에 맞춰 프론트엔드와 백엔드 코드의 책임을 구분한 작업입니다.",
+      "React 프론트엔드의 초기 코드 구조를 설계하고, 신규 화면과 기존 PHP API의 통신 로직을 구현했습니다. PHP 백엔드를 유지하면서 프론트엔드 개발의 기반을 마련한 작업입니다.",
     stack: ["PHP", "React"],
     features: [
-      "PHP 백엔드 유지·React 화면과 API 통신 로직 구현",
+      "React 프론트엔드 초기 코드 구조 설계",
+      "React 신규 화면 기능 개발·PHP API 통신 구현",
       "프론트엔드와 백엔드 코드의 책임 분리",
-      "결제·쇼핑몰·게시판 기존 기능 검증",
-      "운영을 유지하며 단계적으로 리팩토링",
     ],
     challenge:
-      "PHP 개발팀으로 운영하던 조직을 PHP 백엔드와 React 프론트엔드로 나누는 방향에 맞춰, 코드의 책임도 분리해야 했습니다. 프론트엔드와 백엔드의 역할을 구분하고 개발 속도를 개선하는 것이 전환의 목적이었습니다. 기존 서비스 기능과 운영을 유지하며 전환해야 했습니다.",
+      "PHP 중심 개발팀을 PHP 백엔드와 React 프론트엔드로 나누는 방향에 맞춰 코드의 책임도 분리해야 했습니다. 프론트엔드와 백엔드의 역할을 구분하고 개발 속도를 개선하는 것이 목적이었으며, React 개발을 시작할 초기 코드 구조가 필요했습니다.",
     solution:
-      "PHP 백엔드를 유지한 상태에서 프론트엔드 기능과 API 통신 로직을 React로 구현했습니다. 기존 기능을 검증하며 기능 단위로 화면을 전환하고, 백엔드와 프론트엔드 코드의 책임을 분리했습니다.",
+      "React 프론트엔드의 초기 코드 구조를 설계하고 신규 화면과 PHP API 통신 로직을 구현했습니다. 기존 PHP 백엔드는 유지하면서 프론트엔드에서 화면과 사용자 기능을 개발하는 기반을 마련했습니다.",
     result:
-      "PHP 백엔드를 유지하면서 운영 중인 결제·쇼핑몰·게시판의 화면과 API 통신 로직을 React로 전환했습니다. 백엔드와 프론트엔드의 코드 책임을 구분했습니다.",
+      "React 프론트엔드의 초기 구조를 마련하고 신규 화면과 PHP API 연동을 구현했습니다. PHP 백엔드를 유지하면서 프론트엔드와 백엔드의 코드 책임을 구분했습니다.",
     period: "2025.03 — 2025.05",
     company: "(주)스냅컴퍼니",
-    role: "프론트 팀원 · React 화면·API 통신 구현",
+    role: "프론트 팀원 · React 초기 구조 설계·화면·API 연동",
     kind: "system",
-    visualSteps: ["기존 기능 검증", "React 화면·API 통신", "PHP 백엔드 유지"],
+    visualSteps: ["React 초기 구조 설계", "신규 화면 개발", "PHP API 연동"],
     featured: true,
     updatedAt: "2026-11-16",
   },
@@ -341,7 +340,7 @@ export const careers = [
     period: "2024.12 — 재직 중",
     role: "정규직 · 풀스택 팀원",
     description:
-      "ERP AI 챗봇·Slack 알림, S3 파일 전달 구조 개선, PHP 8.3·DDD 업로드 리팩토링과 SQS 연동, PHP 레거시 전환, MSA 서비스 초기 구조 구성.",
+      "ERP AI 챗봇·Slack 알림, S3 파일 전달 구조 개선, PHP 8.3·DDD 업로드 리팩토링과 SQS 연동, React 프론트엔드 초기 구축, MSA 서비스 초기 구조 구성.",
     projects: ["erp-ai", "upload-server", "legacy-snap", "s3-transfer", "msa"],
   },
   {
@@ -425,10 +424,10 @@ export const implementedFeatures = [
     project: "helfu",
   },
   {
-    title: "레거시 전환·기능 분리",
-    category: "REFACTORING",
+    title: "React 초기 구조·화면·API 연동",
+    category: "FRONTEND FOUNDATION",
     description:
-      "PHP 백엔드를 유지하면서 결제·쇼핑몰·게시판의 화면과 API 통신 로직을 React로 전환하고 프론트엔드와 백엔드의 책임을 분리했습니다.",
+      "React 프론트엔드의 초기 코드 구조를 설계하고 신규 화면과 기존 PHP API의 통신 로직을 구현했습니다.",
     tags: ["PHP", "React"],
     project: "legacy-snap",
   },

@@ -74,23 +74,23 @@ export default function CaseDiagram({ id }: { id: string }) {
     return (
       <figure className="case-diagram panel">
         <figcaption>
-          프론트엔드 전환 범위<span>PHP 백엔드 유지 · React 화면 전환</span>
+          React 프론트엔드 초기 구축<span>초기 구조 · 신규 화면 · PHP API 연동</span>
         </figcaption>
         <div className="comparison-grid">
           <div>
             <span className="eyebrow">BEFORE</span>
-            <h3>기존 PHP 기능</h3>
-            <p>결제 · 쇼핑몰 · 게시판</p>
+            <h3>기존 PHP 백엔드</h3>
+            <p>PHP 중심의 개발 환경</p>
           </div>
           <div>
             <span className="eyebrow">AFTER</span>
-            <h3>React 화면 + PHP 백엔드</h3>
-            <p>화면·API 통신은 React로 전환하고 PHP 백엔드는 유지</p>
+            <h3>React 초기 구조·신규 화면</h3>
+            <p>기존 PHP API에 연결하는 통신 로직 구현</p>
           </div>
         </div>
         <p className="diagram-boundary">
           <ShieldCheck size={18} aria-hidden="true" />
-          기존 기능을 검증하면서 서비스 운영을 이어가는 전환 구현
+          초기 코드 구조 설계 · 신규 화면 개발 · PHP API 연동
         </p>
       </figure>
     );

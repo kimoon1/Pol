@@ -46,30 +46,30 @@ function ChatConcept() {
   );
 }
 
-function MigrationConcept() {
+function FrontendFoundationConcept() {
   return (
     <div className="concept-migration">
       <div className="migration-origin">
         <Code2 size={26} strokeWidth={1.4} />
         <strong>PHP</strong>
-        <span>운영 중인 기능</span>
+        <span>기존 백엔드</span>
       </div>
       <ArrowRight className="migration-arrow" size={28} strokeWidth={1.2} />
       <div className="migration-targets">
         <div>
           <Code2 size={20} />
           <strong>React</strong>
-          <span>화면·API 통신</span>
+          <span>초기 구조·화면</span>
         </div>
         <div>
           <Database size={20} />
           <strong>PHP</strong>
-          <span>백엔드 유지</span>
+          <span>API 연동</span>
         </div>
       </div>
       <span className="migration-check">
         <Check size={14} />
-        기존 기능 검증 · 단계적 전환
+        React 초기 구조 · 신규 화면 · API 연동
       </span>
     </div>
   );
@@ -147,7 +147,7 @@ export default function ProjectVisual({
           {project.id === "erp-ai"
             ? "CONVERSATION & PERMISSION"
             : project.id === "legacy-snap"
-              ? "INCREMENTAL MIGRATION"
+              ? "FRONTEND FOUNDATION"
               : project.id === "commerce"
                 ? "COMMERCE INTEGRATION"
                 : "CONNECTED EXPERIENCE"}
@@ -157,7 +157,7 @@ export default function ProjectVisual({
       {project.id === "erp-ai" ? (
         <ChatConcept />
       ) : project.id === "legacy-snap" ? (
-        <MigrationConcept />
+        <FrontendFoundationConcept />
       ) : project.id === "commerce" ? (
         <CommerceConcept />
       ) : (
