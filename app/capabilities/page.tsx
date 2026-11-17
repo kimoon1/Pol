@@ -17,13 +17,13 @@ const areas = [
     title: "API와 데이터 연결",
     description: "화면과 연결되는 API, 업무 정보 조회와 서비스 간 파일 전달 경험입니다.",
     tags: ["Node.js", "NestJS", "FastAPI", "MySQL"],
-    projects: ["education", "s3-transfer", "ai-ad-generator"],
+    projects: ["commerce", "education", "s3-transfer", "ai-ad-generator"],
   },
   {
     title: "운영 구조와 자동화",
-    description: "업로드 처리의 역할 분리, 메시지 연동과 AI 업무 기능을 다룹니다.",
-    tags: ["AWS SQS", "AWS S3", "LangGraph", "LLM"],
-    projects: ["upload-server", "erp-ai", "ai-ad-generator"],
+    description: "Linux·Nginx 서버 배포, 업로드 처리의 역할 분리, 메시지 연동과 AI 업무 기능을 다룹니다.",
+    tags: ["Linux", "Nginx", "AWS SQS", "AWS S3", "LangGraph", "LLM"],
+    projects: ["commerce", "upload-server", "erp-ai", "ai-ad-generator"],
   },
   {
     title: "모바일과 서비스 연동",
