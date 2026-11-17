@@ -235,10 +235,6 @@ export const projects: Project[] = [
     kind: "commerce",
     visualSteps: ["고객사별 화면", "상품·프로모션", "국내·해외 결제"],
     featured: true,
-    link: {
-      label: "HelfU 현재 운영 사이트",
-      href: "https://helfu.kr/",
-    },
   },
   {
     id: "helfu",
