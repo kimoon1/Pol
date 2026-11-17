@@ -86,7 +86,7 @@ function CommerceConcept() {
         {[
           { icon: UserRound, title: "소셜 로그인", step: "01" },
           { icon: ShieldCheck, title: "본인인증", step: "02" },
-          { icon: CreditCard, title: "PG 결제", step: "03" },
+          { icon: CreditCard, title: "국내·해외 결제", step: "03" },
         ].map(({ icon: Icon, title, step }) => (
           <div key={step}>
             <span>{step}</span>

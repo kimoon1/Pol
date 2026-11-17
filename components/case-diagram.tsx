@@ -60,13 +60,13 @@ export default function CaseDiagram({ id }: { id: string }) {
           <ArrowRight className="diagram-arrow" aria-hidden="true" />
           <div>
             <Workflow aria-hidden="true" />
-            <strong>구매 · 결제</strong>
-            <span>PG 결제 · 결제 오류 대응</span>
+            <strong>국내·해외 결제</strong>
+            <span>국내 포트원 · 해외 PayPal</span>
           </div>
         </div>
         <p className="diagram-boundary">
           <Code2 size={18} aria-hidden="true" />
-          React 화면 구조와 핵심 UI 설계 · 외부 인증 및 결제 연동 구현
+          고객용 화면·관리자 전체 개발 · 고객사별 수정 · 국내·해외 결제 연동
         </p>
       </figure>
     );
