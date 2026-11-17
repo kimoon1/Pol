@@ -196,11 +196,11 @@ export default async function ProjectPage({ params }: Props) {
                 <p>{study.verification.summary}</p>
                 <table
                   className="case-verification-table"
-                  aria-label="파일 검사 단계별 확인한 동작"
+                  aria-label={study.verification.title}
                 >
                   <thead>
                     <tr>
-                      <th scope="col">검사 상황</th>
+                      <th scope="col">발생 상황</th>
                       <th scope="col">확인한 동작</th>
                     </tr>
                   </thead>
