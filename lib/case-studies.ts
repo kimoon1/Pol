@@ -272,7 +272,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       ],
     },
     scope:
-      "SEO 메타 태그 정비와 페이지 로딩 성능 개선도 담당했습니다. HelfU 링크는 현재 운영 사이트이며, 위 내용은 당시 담당한 개발 범위입니다.",
+      "SEO 메타 태그 정비와 페이지 로딩 성능 개선도 담당했습니다.",
     related: ["helfu", "legacy-bom"],
   },
 };
