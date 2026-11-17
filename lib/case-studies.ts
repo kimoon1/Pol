@@ -204,12 +204,17 @@ export const caseStudies: Record<string, CaseStudy> = {
     related: ["commerce", "legacy-bom"],
   },
   commerce: {
-    focus: "서로 다른 인증·결제 서비스를 하나의 구매 흐름으로",
+    focus: "기본 코드를 고객사별로 수정하며 쇼핑몰 전체 개발",
     responsibilities: [
       {
-        title: "화면 구조와 핵심 UI",
+        title: "고객용 화면부터 관리자까지 전체 개발",
         description:
-          "팀장 및 주요 개발자로 쇼핑몰의 React 화면 구조를 설계하고 핵심 UI를 구현했습니다.",
+          "골프웨어·건강기능식품 등 일반 소비자 대상 쇼핑몰을 여러 고객사에 맞춰 개발했습니다. 별도 기획자와 협업하며 고객용 React 화면과 관리자 기능을 포함한 전체 개발을 맡았습니다.",
+      },
+      {
+        title: "기본 코드 재사용과 고객사별 수정",
+        description:
+          "관리자·로그인·회원가입은 템플릿처럼 기본 코드를 재사용하고, 고객사마다 수정해 개발했습니다.",
       },
       {
         title: "인증·본인확인",
@@ -222,6 +227,11 @@ export const caseStudies: Record<string, CaseStudy> = {
       },
     ],
     decisions: [
+      {
+        title: "기본 코드를 바탕으로 고객사별 구현",
+        description:
+          "관리자·로그인·회원가입의 기본 코드를 재사용하되 고객사마다 수정하는 방식으로 개발했습니다. 골프웨어·건강기능식품 등 여러 업종의 쇼핑몰에 대응하면서, 고객용 화면과 관리자 기능을 함께 맡았습니다.",
+      },
       {
         title: "React 화면과 외부 인증 서비스 연결",
         description:
