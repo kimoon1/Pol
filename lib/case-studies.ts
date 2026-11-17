@@ -226,6 +226,11 @@ export const caseStudies: Record<string, CaseStudy> = {
         description:
           "국내 결제는 포트원, 해외 결제는 PayPal로 연동하고 결제 처리에 트랜잭션을 적용했습니다. 승인 전 실패한 요청을 정리하고, 승인 후 주문 처리에 실패하면 결제 서비스의 취소 API를 호출했습니다. 실패 시 모달로 안내하고 결제 전 페이지로 이동하도록 구현했습니다.",
       },
+      {
+        title: "Linux 서버 세팅·Nginx 배포·도메인 설정",
+        description:
+          "외부 클라우드의 Linux 서버를 직접 세팅하고 Nginx 기반으로 쇼핑몰을 배포했습니다. 가비아를 통한 도메인 설정까지 맡아 고객사에 배포 환경을 제공했습니다.",
+      },
     ],
     decisions: [
       {
