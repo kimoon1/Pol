@@ -494,6 +494,9 @@ export const orderedProjects = projectOrder.map(
 export const featuredProjects = orderedProjects.filter(
   (project) => project.featured,
 );
+export const recentProject = orderedProjects.find(
+  (project) => project.id === "ai-ad-generator",
+)!;
 export function projectHref(id: string) {
   return `/projects/${id}/`;
 }

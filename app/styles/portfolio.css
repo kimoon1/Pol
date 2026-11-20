@@ -504,6 +504,13 @@
   margin: 24px 0;
   color: var(--muted);
 }
+.resume-header a,
+.resume-intro,
+.resume-entry h3,
+.resume-entry p {
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
 .resume-sheet section {
   margin-top: 32px;
 }
@@ -525,6 +532,9 @@
   align-items: center;
   gap: 8px;
 }
+.resume-entry h3 svg {
+  flex: none;
+}
 .resume-entry span,
 .resume-entry p {
   font-size: 14px;
@@ -533,6 +543,10 @@
 }
 .resume-entry p {
   margin-top: 7px;
+}
+.resume-entry p > strong {
+  color: var(--ink);
+  margin-inline-end: 4px;
 }
 .resume-date {
   font-size: 13px;

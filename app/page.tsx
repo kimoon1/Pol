@@ -12,6 +12,7 @@ import {
   profile,
   featuredProjects,
   orderedProjects,
+  recentProject,
   careers,
   projectHref,
 } from "@/lib/portfolio";
@@ -22,9 +23,6 @@ import HeroVisual from "@/components/hero-visual";
 export default function HomePage() {
   const upload = orderedProjects.find(
     (project) => project.id === "upload-server",
-  )!;
-  const recentProject = orderedProjects.find(
-    (project) => project.id === "ai-ad-generator",
   )!;
   return (
     <div className="home-editorial">
