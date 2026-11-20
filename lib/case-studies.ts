@@ -1,5 +1,6 @@
 export type CaseStudy = {
   focus: string;
+  contribution?: string;
   responsibilities: { title: string; description: string }[];
   decisions: { title: string; description: string }[];
   scope?: string;
@@ -21,6 +22,8 @@ export type CaseStudy = {
 export const caseStudies: Record<string, CaseStudy> = {
   "erp-ai": {
     focus: "대화 이력·응답 속도·부서별 권한을 함께 다룬 ERP 챗봇",
+    contribution:
+      "ERP 챗봇의 스트리밍 응답 화면을 구현하고, 조회 도구와 API에서 부서·직책에 따른 접근 권한을 검사했습니다.",
     responsibilities: [
       {
         title: "프론트엔드 · 스트리밍 채팅과 응답 상태 안내",
@@ -144,6 +147,8 @@ export const caseStudies: Record<string, CaseStudy> = {
   },
   "ai-ad-generator": {
     focus: "광고 소재 제작과 광고 운영을 연결하는 PoC",
+    contribution:
+      "이미지 레이어 분리와 Meta 광고 게재·목록 조회를 구현하고, Meta 앱 심사 승인을 받았습니다.",
     responsibilities: [
       {
         title: "광고 소재 생성 개선",

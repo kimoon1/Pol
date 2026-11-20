@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowUpRight, Check } from "lucide-react";
+import { ArrowDown, ArrowLeft, ArrowUpRight, Check } from "lucide-react";
 import { projects, projectStatus } from "@/lib/portfolio";
 import { caseStudies } from "@/lib/case-studies";
 import { Badge } from "@/components/ui";
 import CaseDiagram from "@/components/case-diagram";
+import ErpChatDemo from "@/components/erp-chat-demo";
 import ProjectCard from "@/components/project-card";
 
 export const dynamicParams = false;
@@ -40,6 +41,7 @@ export default async function ProjectPage({ params }: Props) {
       (id) => projects.find((item) => item.id === id) ?? [],
     ) ?? [];
   const inProgress = project.status === "in-progress";
+  const showErpDemo = slug === "erp-ai";
   const diagramInImplementation = study?.diagramPlacement === "implementation";
   return (
     <article className="case-study">
@@ -53,12 +55,17 @@ export default async function ProjectPage({ params }: Props) {
           <Badge blue>{projectStatus(project)}</Badge>
         </div>
         <h1>{project.name}</h1>
-        <p className="case-lead">{project.subtitle}</p>
+        <p className="case-lead">{study?.contribution ?? project.subtitle}</p>
         <div className="tech-tags">
           {project.stack.map((tech) => (
             <Badge key={tech}>{tech}</Badge>
           ))}
         </div>
+        {showErpDemo && (
+          <a className="text-link case-demo-link" href="#erp-chat-demo">
+            챗봇 데모 체험 <ArrowDown size={16} aria-hidden="true" />
+          </a>
+        )}
         <dl className="case-facts">
           <div>
             <dt>기간</dt>
@@ -79,6 +86,7 @@ export default async function ProjectPage({ params }: Props) {
         <h2>{study?.focus ?? project.subtitle}</h2>
         <p>{project.description}</p>
       </section>
+      {showErpDemo && <ErpChatDemo />}
       {(project.environment || project.collaboration) && (
         <section
           className="case-context panel"

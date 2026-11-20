@@ -301,6 +301,41 @@ html {
   color: var(--muted);
   font-family: var(--font-display);
 }
+.home-recent-project {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  width: min(100%, 440px);
+  margin-top: 22px;
+  padding: 13px 16px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  background: var(--surface);
+  word-break: keep-all;
+}
+.home-recent-copy {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.home-recent-copy > span,
+.home-recent-copy > small {
+  color: var(--muted);
+  font-size: 13px;
+}
+.home-recent-copy > strong {
+  font-size: 16px;
+  font-weight: 600;
+}
+.home-recent-project > svg,
+.home-recent-project:hover strong {
+  color: var(--primary);
+}
+.home-recent-project > svg {
+  flex: none;
+}
 .experience-art {
   position: relative;
   min-width: 0;
@@ -963,77 +998,6 @@ html {
   font-size: 13px;
   line-height: 1.9;
 }
-.editorial-progress {
-  padding-block: 60px;
-  border-bottom: 1px solid var(--border);
-}
-.editorial-progress .eyebrow {
-  color: var(--muted);
-  font-size: 13px;
-}
-.editorial-progress h2 {
-  font-size: 23px;
-  letter-spacing: -0.04em;
-  font-weight: 550;
-  margin-top: 12px;
-  line-height: 1.6;
-}
-.progress-project {
-  display: flex;
-  align-items: center;
-  gap: 23px;
-  padding: 26px 0 0;
-}
-.progress-project-icon {
-  display: grid;
-  place-items: center;
-  width: 66px;
-  height: 66px;
-  border: 1px solid rgb(41 98 255 / 0.15);
-  background: var(--blue-wash);
-  color: var(--primary);
-  flex-shrink: 0;
-}
-.progress-project-status {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  font-size: 13px;
-  color: var(--primary);
-}
-.progress-project-status > i {
-  width: 5px;
-  height: 5px;
-  background: var(--primary);
-  border-radius: 50%;
-}
-.progress-project h3 {
-  font-size: 21px;
-  font-weight: 550;
-  letter-spacing: -0.035em;
-  margin-top: 5px;
-}
-.progress-project p {
-  margin-top: 5px;
-  color: var(--muted);
-  font-size: 15px;
-  line-height: 1.8;
-}
-.progress-project-stack {
-  display: block;
-  font-family: var(--font-display);
-  font-size: 13px;
-  color: var(--muted);
-  margin-top: 8px;
-}
-.progress-project > svg {
-  margin-left: auto;
-  color: var(--primary);
-  flex-shrink: 0;
-}
-.progress-project:hover h3 {
-  color: var(--primary);
-}
 .editorial-career {
   padding-block: 65px 70px;
 }
@@ -1571,33 +1535,6 @@ html {
     font-size: 13px;
   }
   .engineering-scope {
-    font-size: 13px;
-  }
-  .editorial-progress {
-    padding-block: 43px;
-  }
-  .editorial-progress h2 {
-    font-size: 22px;
-  }
-  .progress-project {
-    align-items: flex-start;
-    gap: 15px;
-    padding-top: 23px;
-  }
-  .progress-project-icon {
-    display: none;
-  }
-  .progress-project h3 {
-    font-size: 21px;
-  }
-  .progress-project p {
-    font-size: 14px;
-  }
-  .progress-project > svg {
-    width: 20px;
-    margin-top: 7px;
-  }
-  .progress-project-stack {
     font-size: 13px;
   }
   .editorial-career {

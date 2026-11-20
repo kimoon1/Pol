@@ -1,0 +1,80 @@
+.erp-chat-demo {
+  margin-top: 24px;
+  scroll-margin-top: 100px;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+.erp-chat-demo h2 {
+  font-size: clamp(20px, 2vw, 24px);
+  line-height: 1.45;
+}
+.erp-demo-description {
+  margin-top: 8px;
+  color: var(--muted);
+  line-height: 1.75;
+}
+.erp-demo-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+.erp-demo-action {
+  min-height: 44px;
+  padding: 8px 14px;
+  border: 1px solid rgb(41 98 255 / 0.2);
+  border-radius: 6px;
+  background: var(--blue-wash);
+  color: var(--primary);
+  font-weight: 600;
+}
+.erp-demo-action:hover {
+  border-color: var(--primary);
+}
+.erp-demo-chat {
+  display: grid;
+  align-content: start;
+  gap: 14px;
+  min-height: 184px;
+  margin-top: 16px;
+  padding: clamp(12px, 2.4vw, 22px);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--canvas);
+}
+.erp-demo-empty {
+  align-self: center;
+  justify-self: center;
+  margin-block: 38px;
+  color: var(--muted);
+  text-align: center;
+  line-height: 1.75;
+}
+.erp-demo-message {
+  width: fit-content;
+  max-width: min(100%, 650px);
+  padding: 10px 14px;
+  border-radius: 8px;
+}
+.erp-demo-message strong {
+  font-size: 13px;
+}
+.erp-demo-message p {
+  margin-top: 3px;
+  line-height: 1.75;
+}
+.erp-demo-question {
+  justify-self: end;
+  background: var(--blue-wash);
+}
+.erp-demo-answer {
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+.erp-demo-announcement {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}

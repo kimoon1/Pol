@@ -7,7 +7,6 @@ import {
   ShieldCheck,
   Layers,
   Database,
-  Workflow,
 } from "lucide-react";
 import {
   profile,
@@ -24,7 +23,7 @@ export default function HomePage() {
   const upload = orderedProjects.find(
     (project) => project.id === "upload-server",
   )!;
-  const inProgress = orderedProjects.find(
+  const recentProject = orderedProjects.find(
     (project) => project.id === "ai-ad-generator",
   )!;
   return (
@@ -61,6 +60,17 @@ export default function HomePage() {
               <span />
               <p>React · Next.js · TypeScript</p>
             </div>
+            <Link
+              href={projectHref(recentProject.id)}
+              className="home-recent-project"
+            >
+              <div className="home-recent-copy">
+                <span>최근 프로젝트</span>
+                <strong>{recentProject.name}</strong>
+                <small>이미지 레이어 분리 · Meta 앱 심사 승인</small>
+              </div>
+              <ArrowUpRight size={20} aria-hidden="true" />
+            </Link>
           </div>
           <HeroVisual />
         </div>
@@ -208,30 +218,6 @@ export default function HomePage() {
             </p>
           </div>
         </div>
-      </section>
-
-      <section className="editorial-progress" aria-labelledby="progress-title">
-        <div>
-          <span className="eyebrow">CURRENTLY BUILDING</span>
-          <h2 id="progress-title">지금도, 경험을 넓히는 중입니다.</h2>
-        </div>
-        <Link href={projectHref(inProgress.id)} className="progress-project">
-          <span className="progress-project-icon">
-            <Workflow size={25} strokeWidth={1.5} />
-          </span>
-          <div>
-            <span className="progress-project-status">
-              <i />
-              진행 중
-            </span>
-            <h3>{inProgress.name}</h3>
-            <p>{inProgress.subtitle}</p>
-            <span className="progress-project-stack">
-              NestJS · Python · FastAPI · LLM
-            </span>
-          </div>
-          <ArrowUpRight size={24} />
-        </Link>
       </section>
 
       <section className="editorial-career" aria-labelledby="career-title">

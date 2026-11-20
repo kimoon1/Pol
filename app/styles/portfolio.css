@@ -230,6 +230,17 @@
   font-size: 19px;
   line-height: 1.8;
 }
+.page-description,
+.case-lead,
+.case-facts dd,
+.case-overview p,
+.case-body p {
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+.case-demo-link {
+  margin-top: 14px;
+}
 .case-facts {
   display: grid;
   grid-template-columns: 1fr 1fr 1.6fr;
