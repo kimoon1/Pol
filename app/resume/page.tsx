@@ -4,7 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 import {
   profile,
   careers,
-  featuredProjects,
+  orderedProjects,
   skillGroups,
   education,
   projectHref,
@@ -17,6 +17,10 @@ export const metadata: Metadata = {
   description:
     "이기문 · React, Next.js, TypeScript 프론트엔드 개발 경력과 대표 프로젝트 요약.",
 };
+
+const resumeProjects = orderedProjects.filter(
+  (project) => project.featured || project.id === "ai-ad-generator",
+);
 
 export default function ResumePage() {
   return (
@@ -51,7 +55,7 @@ export default function ResumePage() {
       </section>
       <section>
         <h2>대표 프로젝트</h2>
-        {featuredProjects.map((project) => (
+        {resumeProjects.map((project) => (
           <div className="resume-entry" key={project.id}>
             <div>
               <h3>

@@ -105,22 +105,22 @@ export default function CaseDiagram({ id }: { id: string }) {
           <div>
             <span className="eyebrow">01 / GENERATE</span>
             <h3>광고 소재 생성</h3>
-            <p>외부 API를 통한 이미지·영상 생성</p>
+            <p>참고 지식을 활용한 이미지·영상 생성</p>
           </div>
           <div>
-            <span className="eyebrow">02 / REGISTER</span>
-            <h3>광고매체 등록</h3>
-            <p>광고매체 사이트에 광고 등록</p>
+            <span className="eyebrow">02 / EDIT</span>
+            <h3>이미지 편집</h3>
+            <p>배경·상품·텍스트 레이어 분리</p>
           </div>
           <div>
-            <span className="eyebrow">03 / MONITOR</span>
-            <h3>운영 대시보드</h3>
-            <p>광고 운영 정보를 확인하는 화면</p>
+            <span className="eyebrow">03 / PUBLISH</span>
+            <h3>광고 게재</h3>
+            <p>Meta 광고 게재와 목록 조회</p>
           </div>
           <div>
-            <span className="eyebrow">04 / ANALYZE</span>
-            <h3>LLM 성과 분석</h3>
-            <p>LLM을 활용한 광고 성과 분석</p>
+            <span className="eyebrow">04 / REVIEW</span>
+            <h3>성과 확인</h3>
+            <p>성과 목록과 항목별 세부 내역</p>
           </div>
         </div>
       </figure>
