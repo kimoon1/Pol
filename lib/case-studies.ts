@@ -94,6 +94,11 @@ export const caseStudies: Record<string, CaseStudy> = {
         description:
           "작업·완료 메시지의 SQS 연동과 API 서버의 크론 기반 메시지 소비·업로드 파일 DB 반영을 구현했습니다.",
       },
+      {
+        title: "실패 작업 재시도와 즉시 응답 구조",
+        description:
+          "이미지·영상 업로드 작업은 실패 시 3회 재시도하도록 처리했습니다. 작업이 실패한 시점에 프론트엔드로 즉시 응답할 수 있는 구조를 설계했습니다.",
+      },
     ],
     decisions: [
       {
@@ -151,9 +156,9 @@ export const caseStudies: Record<string, CaseStudy> = {
   "ai-ad-generator": {
     focus: "광고 소재 제작과 광고 운영을 연결하는 PoC",
     contribution:
-      "MSA 초기 구성과 NestJS·Python 서비스 템플릿 플러그인 구축 전반을 담당했습니다. 이미지 레이어 분리·Meta 광고 API·성과 대시보드도 구현했습니다.",
+      "MSA 초기 구성과 NestJS·Python 서비스 템플릿 플러그인 구축 전반을 담당했습니다. 이미지 레이어 분리·Meta 광고 API·성과 대시보드와 KG이니시스 단건·정기결제를 구현했습니다.",
     resumeResult:
-      "공통 kit를 재사용해 기존 저장소의 서비스 추가와 신규 프로젝트 생성을 지원했습니다. 소재 생성 지식의 검색 적중률을 개선하고 Meta 앱 심사 승인을 받았으며, 광고 게재·목록 조회와 성과 상세 조회를 구현했습니다.",
+      "공통 kit로 서비스 추가와 신규 프로젝트 생성을 지원하고, 소재 생성 지식의 검색 적중률을 개선했습니다. Meta 앱 심사 승인을 받고 광고 게재·목록·성과 조회를 구현했습니다. KG이니시스 단건·정기결제와 최종 실패 작업의 미청구 처리도 구현했습니다.",
     responsibilities: [
       {
         title: "MSA 초기 구성과 게이트웨이 접근 구조",
@@ -195,6 +200,16 @@ export const caseStudies: Record<string, CaseStudy> = {
         description:
           "광고 성과 목록 테이블과 상세 조회 모달을 추가해 항목별 세부 내역을 확인할 수 있도록 구현했습니다.",
       },
+      {
+        title: "작업 재시도와 최종 실패 시 미청구",
+        description:
+          "작업에 드는 비용과 처리 시간을 고려해 실패 작업은 2회 재시도하도록 처리했습니다. 재시도 후에도 최종 실패한 작업에는 비용을 청구하지 않도록 구현했습니다.",
+      },
+      {
+        title: "KG이니시스 단건·정기결제 구현",
+        description:
+          "KG이니시스를 연동해 단건 결제와 정기결제 로직을 직접 구현했습니다.",
+      },
     ],
     decisions: [
       {
@@ -231,7 +246,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       ],
     },
     scope:
-      "MSA 초기 구성과 서비스 템플릿 플러그인을 구축하고, 소재 생성·편집·광고 게재 기능을 구현한 PoC입니다. 서비스 개발을 이어가고 있습니다.",
+      "MSA 초기 구성과 서비스 템플릿 플러그인을 구축하고, 소재 생성·편집·광고 게재와 단건·정기결제를 구현한 PoC입니다. 서비스 개발을 이어가고 있습니다.",
     related: ["erp-ai", "commerce"],
   },
   "legacy-snap": {
