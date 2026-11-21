@@ -325,10 +325,14 @@ export const projects: Project[] = [
     category: "Platform",
     description:
       "AI 이미지·영상 광고 소재 생성부터 광고 게재와 성과 확인까지 연결하는 PoC입니다. 프론트엔드의 화면·공통 컴포넌트·API 경계를 나누고, 게이트웨이 기반 MSA 초기 구성과 NestJS·Python 서비스 템플릿 플러그인 구축 전반을 담당했습니다.",
-    stack: ["NestJS", "Python", "FastAPI", "MSA", "Claude 플러그인", "외부 API", "LLM"],
+    stack: ["NestJS", "Python", "FastAPI", "MSA", "Claude 플러그인", "ECS", "Docker", "GitLab CI", "외부 API", "LLM"],
     features: [
       "MSA 초기 구성과 게이트웨이 경유 내부 서비스 접근 구조",
       "NestJS·Python 서비스 생성 템플릿과 Claude 플러그인 구현",
+      "Redis·SSM·DB 연결 공통 kit와 ECS용 빌드 구성 관리",
+      "기존 저장소 서비스 추가·빈 폴더 신규 프로젝트 생성 지원",
+      "기본 패키지 설치·health check API·Make·Docker 이미지 관련 뼈대 생성",
+      "msa 명령을 통한 서비스 추가와 요청 기능 구현 연결",
       "프론트엔드 화면·공통 컴포넌트·API 경계 분리",
       "광고 소재 생성에 필요한 참고 지식의 검색 적중률 개선",
       "배경·상품·텍스트의 개별 이미지 레이어 분리",
@@ -338,14 +342,14 @@ export const projects: Project[] = [
     challenge:
       "MSA 내부 서비스의 접근 경로와 새 서비스 개발을 시작할 초기 구조가 필요했습니다. 일반 백엔드와 크롤링·임베딩·pandas 활용 작업에 맞는 서비스 구성을 마련해야 했습니다. 초기 PoC에서는 소재 생성에 필요한 참고 지식의 검색 누락과 광고 기능별 권한 파악도 과제였습니다.",
     solution:
-      "프론트 서버를 포함한 내부 서비스 접근이 게이트웨이를 거치도록 구성했습니다. NestJS를 기본으로 하고 Python의 강점이 필요한 작업에는 Python 서비스를 만들 수 있도록 두 종류의 템플릿과 Claude 플러그인을 구현했습니다. 참고 지식의 검색 방식을 개선하고 이미지 레이어 분리, Meta 광고 API와 성과 대시보드도 개발했습니다.",
+      "게이트웨이 경유 접근 구조와 NestJS·Python 서비스 템플릿을 구성했습니다. Redis·SSM·DB 연결과 ECS용 빌드 구성은 공통 kit로 관리하고, 기존 저장소의 서비스 추가와 빈 폴더의 신규 프로젝트 생성을 지원하는 Claude 플러그인을 구현했습니다. msa 명령은 서비스 추가에서 요청 기능 구현까지 연결합니다. 검증은 GitLab CI에서 진행하며, 소재 검색 개선·이미지 레이어 분리·Meta 광고 API·대시보드도 개발했습니다.",
     result:
-      "MSA 초기 구조와 게이트웨이 접근 경로, NestJS·Python 템플릿 플러그인을 구축해 내부 서비스 추가의 기반을 마련했습니다. 참고 지식의 검색 적중률과 이미지 레이어 편집을 개선했습니다. Meta 앱 심사 승인을 받았으며 광고 게재·목록 조회와 성과 상세 조회를 구현했습니다.",
+      "MSA 초기 구조와 공통 kit, 두 가지 생성 방식을 갖춘 서비스 템플릿 플러그인을 구축했습니다. msa 명령으로 요청 서비스 추가와 기능 구현을 이어가는 흐름을 마련했습니다. 소재 생성 지식의 검색 적중률과 이미지 편집을 개선하고 Meta 앱 심사 승인, 광고 게재·목록·성과 상세 조회 구현을 완료했습니다.",
     period: "2026.02 — 현재",
     company: "업무 프로젝트",
     role: "MSA 초기 구성·서비스 템플릿 플러그인 전반 · 소재 생성·광고 API·대시보드",
     environment:
-      "프론트 서버도 게이트웨이를 거쳐 내부 서비스에 접근하는 MSA 구성 · NestJS 기본 서비스와 Python 특화 서비스",
+      "게이트웨이 경유 MSA 구성 · ECS 배포 환경 · kit의 빌드 구성 · GitLab CI 검증",
     kind: "workspace",
     visualSteps: ["소재 생성·편집", "광고 게재", "성과 확인"],
     status: "in-progress",

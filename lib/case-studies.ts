@@ -153,7 +153,7 @@ export const caseStudies: Record<string, CaseStudy> = {
     contribution:
       "MSA 초기 구성과 NestJS·Python 서비스 템플릿 플러그인 구축 전반을 담당했습니다. 이미지 레이어 분리·Meta 광고 API·성과 대시보드도 구현했습니다.",
     resumeResult:
-      "내부 서비스를 템플릿으로 추가하는 기반을 마련하고 소재 생성 지식의 검색 적중률을 개선했습니다. Meta 앱 심사 승인을 받았으며 광고 게재·목록 조회와 성과 상세 조회를 구현했습니다.",
+      "공통 kit를 재사용해 기존 저장소의 서비스 추가와 신규 프로젝트 생성을 지원했습니다. 소재 생성 지식의 검색 적중률을 개선하고 Meta 앱 심사 승인을 받았으며, 광고 게재·목록 조회와 성과 상세 조회를 구현했습니다.",
     responsibilities: [
       {
         title: "MSA 초기 구성과 게이트웨이 접근 구조",
@@ -163,7 +163,12 @@ export const caseStudies: Record<string, CaseStudy> = {
       {
         title: "서비스 템플릿·Claude 플러그인 구축",
         description:
-          "NestJS와 Python 서비스의 코드 뼈대를 만들 수 있는 템플릿과 Claude 플러그인을 구현했습니다. 플러그인을 통해 내부 서비스를 추가하는 기반을 마련했습니다.",
+          "기존 저장소에 서비스를 추가하거나 빈 폴더에서 신규 프로젝트를 생성하는 Claude 플러그인을 구현했습니다. 공통 kit·기본 서버 코드 생성부터 msa 명령의 요청 기능 구현까지 연결했습니다.",
+      },
+      {
+        title: "ECS용 빌드 구성과 GitLab CI 검증",
+        description:
+          "ECS 배포 환경에 맞춰 빌드 관련 구성을 kit에 포함했습니다. 검증은 GitLab CI에서 진행했습니다.",
       },
       {
         title: "프론트엔드 코드 경계 설계",
@@ -198,11 +203,33 @@ export const caseStudies: Record<string, CaseStudy> = {
           "일반 백엔드 서비스는 NestJS를 기본으로 구성했습니다. 크롤링·임베딩 처리·pandas 활용처럼 Python의 강점이 필요한 작업을 지원하기 위해 Python 서비스 템플릿도 마련했습니다.",
       },
       {
-        title: "템플릿을 이용한 내부 서비스 추가",
+        title: "공통 kit로 기반 기능과 빌드 구성 분리",
         description:
-          "새 서비스의 코드 뼈대를 템플릿으로 만들 수 있도록 Claude 플러그인을 구현했습니다. 서비스 초기 코드 생성 방식을 마련해 내부 서비스를 추가하기 쉽게 구성했습니다.",
+          "Redis·SSM·DB 연결 등의 공통 로직과 ECS 환경의 빌드 관련 구성을 kit 패키지로 따로 관리했습니다. 기존 저장소에 서비스를 추가할 때 공통 kit를 패키지로 연결하도록 구성했습니다.",
+      },
+      {
+        title: "msa 명령으로 서비스 추가와 요청 기능 구현 연결",
+        description:
+          "msa 명령으로 요청한 서비스를 추가하고 해당 기능의 구현까지 이어지도록 플러그인을 구성했습니다.",
       },
     ],
+    codeExample: {
+      title: "서비스 템플릿 생성 범위",
+      summary:
+        "Redis·SSM·DB 연결 공통 로직과 ECS 배포용 빌드 구성은 kit 패키지로 관리하고, 시작 환경에 따라 생성 범위를 나눴습니다.",
+      parts: [
+        {
+          name: "기존 저장소에 서비스 추가",
+          detail:
+            "공통 kit 패키지를 추가하고 기본 패키지를 설치합니다. health check API가 포함된 서버 코드를 구성합니다.",
+        },
+        {
+          name: "빈 폴더에서 신규 프로젝트 생성",
+          detail:
+            "프로젝트 전체 골격과 kit 구성을 생성하고, Make 구성과 Docker 이미지 관련 뼈대 코드를 포함합니다.",
+        },
+      ],
+    },
     scope:
       "MSA 초기 구성과 서비스 템플릿 플러그인을 구축하고, 소재 생성·편집·광고 게재 기능을 구현한 PoC입니다. 서비스 개발을 이어가고 있습니다.",
     related: ["erp-ai", "commerce"],

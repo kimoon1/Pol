@@ -120,6 +120,20 @@ export default async function ProjectPage({ params }: Props) {
               </div>
             ))}
           </div>
+          {study?.codeExample && (
+            <section className="case-code-example">
+              <h3>{study.codeExample.title}</h3>
+              <p>{study.codeExample.summary}</p>
+              <dl>
+                {study.codeExample.parts.map((part) => (
+                  <div key={part.name}>
+                    <dt>{part.name}</dt>
+                    <dd>{part.detail}</dd>
+                  </div>
+                ))}
+              </dl>
+            </section>
+          )}
           {study && study.decisions.length > 0 && (
             <section
               className="progress-decisions"
