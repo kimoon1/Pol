@@ -17,19 +17,19 @@ const stages = [
     actor: "업로드 서버",
     title: "영상 Vimeo 연동 · 이미지 변환 · 썸네일 생성",
     description:
-      "미디어 후처리를 수행하고 처리 완료 정보를 등록합니다. DB에는 직접 접근하지 않습니다.",
+      "미디어 후처리를 수행하고 최종 성공·실패 결과를 등록합니다. DB에는 직접 접근하지 않습니다.",
     type: "SERVER",
   },
   {
-    actor: "SQS 완료 메시지",
-    title: "미디어 처리 완료 알림",
-    description: "후처리가 완료된 업로드 파일 정보를 API 서버에 전달합니다.",
+    actor: "SQS 결과 메시지",
+    title: "비동기 처리의 성공·실패 전달",
+    description: "비동기 작업의 최종 결과를 전달하고, 실패는 이후 안내합니다.",
     type: "MESSAGE",
   },
   {
     actor: "API 서버",
     title: "크론으로 메시지 소비 · 완료 파일 정보 DB 반영",
-    description: "완료 메시지를 조회해 업로드 결과를 DB에 반영합니다.",
+    description: "메시지를 소비해 처리가 완료된 파일 정보를 DB에 반영합니다.",
     type: "SERVER",
   },
 ];
@@ -81,7 +81,8 @@ export default function UploadArchitecture() {
         ))}
       </ol>
       <p className="pipeline-caption">
-        SQS는 작업 전달과 완료 알림의 메시지 용도로 구분해 표시했습니다.
+        검사 직전까지의 동기 처리 실패는 REST API로 즉시 응답합니다.
+        비동기 검사·CDN 업로드의 실패는 SQS 최종 결과를 통해 이후 안내합니다.
       </p>
     </figure>
   );
