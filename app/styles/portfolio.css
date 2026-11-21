@@ -16,6 +16,9 @@
 .progress-summary .case-code-example {
   margin-top: 32px;
 }
+.progress-summary .case-code-example dt {
+  word-break: keep-all;
+}
 .progress-summary .case-code-example dd {
   font-size: 16px;
 }
