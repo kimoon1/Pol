@@ -168,7 +168,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       {
         title: "ECS용 빌드 구성과 GitLab CI 검증",
         description:
-          "ECS 배포 환경에 맞춰 빌드 관련 구성을 kit에 포함했습니다. 검증은 GitLab CI에서 진행했습니다.",
+          "ECS 배포 환경에 맞춰 빌드 관련 구성을 kit에 포함했습니다. GitLab CI에서 빌드·린트를 검증하고, 테스트는 Claude 스킬로 작성해 활용하고 있습니다.",
       },
       {
         title: "프론트엔드 코드 경계 설계",
