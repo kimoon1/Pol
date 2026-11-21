@@ -120,6 +120,20 @@ export default async function ProjectPage({ params }: Props) {
               </div>
             ))}
           </div>
+          {study && study.decisions.length > 0 && (
+            <section
+              className="progress-decisions"
+              aria-label="서비스 구성과 설계 기준"
+            >
+              <h3>서비스 구성과 설계 기준</h3>
+              {study.decisions.map((item) => (
+                <div className="decision" key={item.title}>
+                  <h4>{item.title}</h4>
+                  <p>{item.description}</p>
+                </div>
+              ))}
+            </section>
+          )}
           {project.updatedAt && (
             <p className="case-updated">
               최근 업데이트{" "}

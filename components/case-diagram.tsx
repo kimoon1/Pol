@@ -97,33 +97,63 @@ export default function CaseDiagram({ id }: { id: string }) {
   if (id === "upload-server") return <UploadArchitecture />;
   if (id === "ai-ad-generator")
     return (
-      <figure className="case-diagram panel">
-        <figcaption>
-          개발 범위 요약<span>NestJS · Python · FastAPI / IN PROGRESS</span>
-        </figcaption>
-        <div className="comparison-grid">
-          <div>
-            <span className="eyebrow">01 / GENERATE</span>
-            <h3>광고 소재 생성</h3>
-            <p>참고 지식을 활용한 이미지·영상 생성</p>
+      <>
+        <figure className="case-diagram panel">
+          <figcaption>
+            개발 범위 요약<span>NestJS · Python · FastAPI / IN PROGRESS</span>
+          </figcaption>
+          <div className="comparison-grid">
+            <div>
+              <span className="eyebrow">01 / GENERATE</span>
+              <h3>광고 소재 생성</h3>
+              <p>참고 지식을 활용한 이미지·영상 생성</p>
+            </div>
+            <div>
+              <span className="eyebrow">02 / EDIT</span>
+              <h3>이미지 편집</h3>
+              <p>배경·상품·텍스트 레이어 분리</p>
+            </div>
+            <div>
+              <span className="eyebrow">03 / PUBLISH</span>
+              <h3>광고 게재</h3>
+              <p>Meta 광고 게재와 목록 조회</p>
+            </div>
+            <div>
+              <span className="eyebrow">04 / REVIEW</span>
+              <h3>성과 확인</h3>
+              <p>성과 목록과 항목별 세부 내역</p>
+            </div>
           </div>
-          <div>
-            <span className="eyebrow">02 / EDIT</span>
-            <h3>이미지 편집</h3>
-            <p>배경·상품·텍스트 레이어 분리</p>
+        </figure>
+        <figure className="case-diagram panel">
+          <figcaption>
+            내부 서비스 접근 구조<span>게이트웨이 경유 · MSA 초기 구성</span>
+          </figcaption>
+          <div className="diagram-flow">
+            <div>
+              <Code2 aria-hidden="true" />
+              <strong>프론트 서버 등</strong>
+              <span>내부 서비스 접근 요청</span>
+            </div>
+            <ArrowRight className="diagram-arrow" aria-hidden="true" />
+            <div>
+              <Workflow aria-hidden="true" />
+              <strong>게이트웨이 서버</strong>
+              <span>내부 서비스 접근 경로</span>
+            </div>
+            <ArrowRight className="diagram-arrow" aria-hidden="true" />
+            <div>
+              <Code2 aria-hidden="true" />
+              <strong>내부 서비스</strong>
+              <span>NestJS 기본 · Python 특화 작업</span>
+            </div>
           </div>
-          <div>
-            <span className="eyebrow">03 / PUBLISH</span>
-            <h3>광고 게재</h3>
-            <p>Meta 광고 게재와 목록 조회</p>
-          </div>
-          <div>
-            <span className="eyebrow">04 / REVIEW</span>
-            <h3>성과 확인</h3>
-            <p>성과 목록과 항목별 세부 내역</p>
-          </div>
-        </div>
-      </figure>
+          <p className="diagram-boundary">
+            <Code2 size={18} aria-hidden="true" />
+            NestJS·Python 서비스 템플릿과 Claude 플러그인 구축
+          </p>
+        </figure>
+      </>
     );
   return null;
 }

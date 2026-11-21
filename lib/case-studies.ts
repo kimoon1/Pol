@@ -151,10 +151,25 @@ export const caseStudies: Record<string, CaseStudy> = {
   "ai-ad-generator": {
     focus: "광고 소재 제작과 광고 운영을 연결하는 PoC",
     contribution:
-      "이미지 레이어 분리와 Meta 광고 게재·목록 조회를 구현하고, Meta 앱 심사 승인을 받았습니다.",
+      "MSA 초기 구성과 NestJS·Python 서비스 템플릿 플러그인 구축 전반을 담당했습니다. 이미지 레이어 분리·Meta 광고 API·성과 대시보드도 구현했습니다.",
     resumeResult:
-      "광고 소재 생성에 필요한 지식의 검색 적중률을 높이고, 성과 목록 테이블과 상세 조회 모달을 추가했습니다.",
+      "내부 서비스를 템플릿으로 추가하는 기반을 마련하고 소재 생성 지식의 검색 적중률을 개선했습니다. Meta 앱 심사 승인을 받았으며 광고 게재·목록 조회와 성과 상세 조회를 구현했습니다.",
     responsibilities: [
+      {
+        title: "MSA 초기 구성과 게이트웨이 접근 구조",
+        description:
+          "MSA 프로젝트의 초기 구성 전반을 담당했습니다. 프론트 서버를 포함한 내부 서비스 접근이 게이트웨이 서버를 거치도록 구성했습니다.",
+      },
+      {
+        title: "서비스 템플릿·Claude 플러그인 구축",
+        description:
+          "NestJS와 Python 서비스의 코드 뼈대를 만들 수 있는 템플릿과 Claude 플러그인을 구현했습니다. 플러그인을 통해 내부 서비스를 추가하는 기반을 마련했습니다.",
+      },
+      {
+        title: "프론트엔드 코드 경계 설계",
+        description:
+          "프론트엔드 코드를 화면·공통 컴포넌트·API 경계로 나눴습니다.",
+      },
       {
         title: "광고 소재 생성 개선",
         description:
@@ -176,9 +191,20 @@ export const caseStudies: Record<string, CaseStudy> = {
           "광고 성과 목록 테이블과 상세 조회 모달을 추가해 항목별 세부 내역을 확인할 수 있도록 구현했습니다.",
       },
     ],
-    decisions: [],
+    decisions: [
+      {
+        title: "NestJS 기본 구성과 Python 특화 작업 구분",
+        description:
+          "일반 백엔드 서비스는 NestJS를 기본으로 구성했습니다. 크롤링·임베딩 처리·pandas 활용처럼 Python의 강점이 필요한 작업을 지원하기 위해 Python 서비스 템플릿도 마련했습니다.",
+      },
+      {
+        title: "템플릿을 이용한 내부 서비스 추가",
+        description:
+          "새 서비스의 코드 뼈대를 템플릿으로 만들 수 있도록 Claude 플러그인을 구현했습니다. 서비스 초기 코드 생성 방식을 마련해 내부 서비스를 추가하기 쉽게 구성했습니다.",
+      },
+    ],
     scope:
-      "소재 생성과 광고 게재 기능이 구현된 PoC로, 서비스 개발을 이어가고 있습니다.",
+      "MSA 초기 구성과 서비스 템플릿 플러그인을 구축하고, 소재 생성·편집·광고 게재 기능을 구현한 PoC입니다. 서비스 개발을 이어가고 있습니다.",
     related: ["erp-ai", "commerce"],
   },
   "legacy-snap": {
